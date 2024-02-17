@@ -14,5 +14,6 @@ sudo apt -y install ruby-full
 sudo gem install colorls
 apt install -y fzf
 apt install -y stow
+apt install -y highlight
 #Install font
 #P10k configure
