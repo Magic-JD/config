@@ -107,3 +107,5 @@ export FZF_DEFAULT_COMMAND="find -L"
 alias ls="colorls"
 alias la="colorls -al"
 
+export VISUAL=vi
+export EDITOR="$VISUAL"
