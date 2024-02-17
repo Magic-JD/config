@@ -27,6 +27,9 @@ return require('packer').startup(function(use)
       end,
   })
   use 'nvim-tree/nvim-web-devicons'
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+      require("toggleterm").setup()
+  end}
   use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  requires = {
