@@ -13,6 +13,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 sudo apt -y install ruby-full
 sudo gem -y install colorls
 
-
+apt install -y stow
 #Install font
 #P10k configure
