@@ -16,5 +16,11 @@ sudo gem install colorls
 apt install -y fzf
 apt install -y stow
 apt install -y highlight
+apt install -y htop
+apt install -y tig
+
+sudo apt install python3-dev python3-pip python3-setuptools
+pip3 install thefuck --user
+
 #Install font
 #P10k configure

@@ -10,9 +10,14 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
+export PATH="$PATH:~/.local/bin/"
 ZSH_THEME="powerlevel10k/powerlevel10k"
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# The fuck
+export PATH="$HOME/.local/bin/:$PATH"
+eval $(thefuck --alias)
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -104,8 +109,10 @@ export FZF_DEFAULT_OPTS="--preview 'highlight -O ansi --force {}'"
 export FZF_DEFAULT_COMMAND="find -L"
 #eval "$(zoxide init --cmd cd zsh)"
 
+#Alias for ls to make it look better
 alias ls="colorls"
 alias la="colorls -al"
 
+# Sets default editor to vim
 export VISUAL=vi
 export EDITOR="$VISUAL"
