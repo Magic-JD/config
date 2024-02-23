@@ -37,7 +37,12 @@ return require('packer').startup(function(use)
         after = "nvim-treesitter",
         requires = "nvim-treesitter/nvim-treesitter",
     })
-    use('theprimeagen/harpoon')
+    use "nvim-lua/plenary.nvim" -- don't forget to add this one if you don't have it yet!
+    use {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { {"nvim-lua/plenary.nvim"} }
+    }
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
     use {
@@ -63,7 +68,6 @@ return require('packer').startup(function(use)
             require("oil").setup()
         end,
     })
-    use 'nvim-tree/nvim-web-devicons'
     use {"akinsho/toggleterm.nvim", tag = '*', config = function()
         require("toggleterm").setup()
     end}
