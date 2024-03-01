@@ -109,10 +109,12 @@ export FZF_DEFAULT_OPTS="--preview 'highlight -O ansi --force {}'"
 export FZF_DEFAULT_COMMAND="find -L"
 #eval "$(zoxide init --cmd cd zsh)"
 
-#Alias for ls to make it look better
-alias ls="colorls"
-alias la="colorls -al"
+source ~/.zshrc_aliases
 
 # Sets default editor to vim
 export VISUAL=vi
 export EDITOR="$VISUAL"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
