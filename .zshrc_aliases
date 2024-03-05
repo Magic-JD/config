@@ -1,0 +1,29 @@
+#Alias for ls to make it look better
+alias ls='colorls'
+alias la='colorls -al'
+
+#FZF aliases
+alias fvi='vi $(fzf)'
+
+#Batcat to bat alias
+alias bat='batcat'
+
+# rg
+  # --field-match-separator ' ' - tell rg to separate the filename and linenumber with
+  # spaces to play well with fzf, (when recognizing index variables to use in the fzf
+  # preview command, fzf uses a default delimiter of space, see below)
+
+# fzf
+  # --preview window ~8,+{1}-5
+  #   this is a fzf feature
+  #   ~8 - show first 8 lines (header)
+  #   +{2} - fzf delimits the input piped in to it and provides access via index variables {n}. 
+  #   the default delimiter fzf uses is space but can be specified via --delimiter <delimiter>
+  #   pass the second index variable from bat (which is the line number)
+  #   the number is signed, you can show eg the +n row or the -n row (the nth row from the bottom)
+  #   -5 subtract 5 rows (go up 5 rows) so that you don't show the highlighted line as the first line
+  #   since you want to provide context by showing the rows above the highlighted line
+
+alias frg='rg --line-number --with-filename . --color=always | fzf --delimiter=":" --with-nth=3.. --preview "batcat --color=always {1} --highlight-line {2}" --preview-window ~8,+{2}-5'
+
+alias ams='ssh -i "/home/joe/terminal.pem" ubuntu@ec2-3-27-153-206.ap-southeast-2.compute.amazonaws.com' 
