@@ -7,8 +7,22 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'karb94/neoscroll.nvim'
     use 'wbthomason/packer.nvim'
+    use 'backdround/global-note.nvim'
     use 'folke/tokyonight.nvim'
     use 'nvim-tree/nvim-web-devicons'
+    use 'NvChad/nvim-colorizer.lua'
+    use({
+        "jackMort/ChatGPT.nvim",
+        config = function()
+            require("chatgpt").setup()
+        end,
+        requires = {
+            "MunifTanjim/nui.nvim",
+            "nvim-lua/plenary.nvim",
+            "folke/trouble.nvim",
+            "nvim-telescope/telescope.nvim"
+        }
+    })
     use {
         "folke/which-key.nvim",
         config = function()
@@ -72,6 +86,27 @@ return require('packer').startup(function(use)
         require("toggleterm").setup()
     end}
     use {
+        'nvim-java/nvim-java',
+        requires = {
+            'nvim-java/lua-async-await',
+            'nvim-java/nvim-java-core',
+            'nvim-java/nvim-java-test',
+            'nvim-java/nvim-java-dap',
+            'MunifTanjim/nui.nvim',
+            'neovim/nvim-lspconfig',
+            'mfussenegger/nvim-dap',
+            {
+                'williamboman/mason.nvim',
+                opts = {
+                    registries = {
+                        'github:nvim-java/mason-registry',
+                        'github:mason-org/mason-registry',
+                    },
+                },
+            }
+        },
+    }
+    use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
             {'neovim/nvim-lspconfig'},
@@ -87,4 +122,10 @@ return require('packer').startup(function(use)
             {'rafamadriz/friendly-snippets'}
         }
     }
+    use({
+        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        config = function()
+            require("lsp_lines").setup()
+        end,
+    })
 end)

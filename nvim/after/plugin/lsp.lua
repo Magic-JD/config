@@ -28,7 +28,7 @@ require('mason-lspconfig').setup({
     end,
   }
 })
-
+-- I am not sure how to open the config menu except this line lol require('java').setup()
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
