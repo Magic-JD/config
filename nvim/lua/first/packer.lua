@@ -5,17 +5,24 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
-    use 'karb94/neoscroll.nvim'
     use 'wbthomason/packer.nvim'
+    -- Smooth scrolling
+    use 'karb94/neoscroll.nvim'
+    -- Adding a global note that can be accessed anywhere
     use 'backdround/global-note.nvim'
+    -- Color theme
     use 'folke/tokyonight.nvim'
+    -- Highlights only the paragraph that you are focused on
+    use 'junegunn/limelight.vim'
+    -- Zen mode
+    use 'junegunn/goyo.vim'
+    -- Adds icons
     use 'nvim-tree/nvim-web-devicons'
+    -- Adds Colors
     use 'NvChad/nvim-colorizer.lua'
+    -- ChatGPT integration
     use({
         "jackMort/ChatGPT.nvim",
-        config = function()
-            require("chatgpt").setup()
-        end,
         requires = {
             "MunifTanjim/nui.nvim",
             "nvim-lua/plenary.nvim",
@@ -23,68 +30,52 @@ return require('packer').startup(function(use)
             "nvim-telescope/telescope.nvim"
         }
     })
-    use {
-        "folke/which-key.nvim",
-        config = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-            require("which-key").setup {
-                -- leave it empty to use the default settings
-            }
-        end
-    }
+    -- Gives hints about what key you can use
+    use 'folke/which-key.nvim'
+    -- Enables quickly and easily changing the surrounding "{[(
     use({
         "kylechui/nvim-surround",
         tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-        config = function()
-            require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
-            })
-        end
     })
+    -- Fuzzy find for nvim. Searches well and works nicely with grep
     use { "ibhagwan/fzf-lua",
         requires = { "nvim-tree/nvim-web-devicons" }
     }
+    -- For syntax parsing
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
+    -- For interacting with treesitter
     use({
         "nvim-treesitter/nvim-treesitter-textobjects",
         after = "nvim-treesitter",
         requires = "nvim-treesitter/nvim-treesitter",
     })
-    use "nvim-lua/plenary.nvim" -- don't forget to add this one if you don't have it yet!
+    -- This one is for handling plugin concurrency
+    use "nvim-lua/plenary.nvim"
+    -- Harpoon for file hopping
     use {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
         requires = { {"nvim-lua/plenary.nvim"} }
     }
+    -- See changes through files
     use('mbbill/undotree')
+    -- Git support
     use('tpope/vim-fugitive')
+    -- Pretty status line
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
+    -- Makes the number change color with the status bar
     use {
         'mawkler/modicator.nvim',
         after = 'tokyonight.nvim', -- Add your colorscheme plugin here
-        setup = function()
-            -- These are required for Modicator to work
-            vim.o.cursorline = true
-            vim.o.number = true
-            vim.o.termguicolors = true
-        end,
-        config = function()
-            require('modicator').setup()
-        end
     }
-    use({
-        "stevearc/oil.nvim",
-        config = function()
-            require("oil").setup()
-        end,
-    })
-    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-        require("toggleterm").setup()
-    end}
+    -- Cool file manager? and folder navigation
+    use "stevearc/oil.nvim"
+    -- Add a terminal inside neovim in case you want to check something
+    use {"akinsho/toggleterm.nvim", tag = '*'}
+    -- LSP
     use {
         'nvim-java/nvim-java',
         requires = {
@@ -106,6 +97,7 @@ return require('packer').startup(function(use)
             }
         },
     }
+    -- LSP
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
@@ -122,10 +114,6 @@ return require('packer').startup(function(use)
             {'rafamadriz/friendly-snippets'}
         }
     }
-    use({
-        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-        config = function()
-            require("lsp_lines").setup()
-        end,
-    })
+    -- Adds visual lines for lsp feedback
+    use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
 end)

@@ -107,9 +107,11 @@ source $ZSH/oh-my-zsh.sh
 
 export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'batcat --color=always --style=header,grid --line-range :300 {}'"
 export FZF_DEFAULT_COMMAND="find -L"
-#eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init zsh)"
 
+# Source own .files
 source ~/.zshrc_aliases
+source ~/.api_keys
 
 # Sets default editor to vim
 export VISUAL=vi
@@ -117,6 +119,8 @@ export EDITOR="$VISUAL"
 bindkey -v
 
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/home/joe/.cargo/bin
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+

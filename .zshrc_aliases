@@ -1,12 +1,14 @@
 #Alias for ls to make it look better
-alias ls='colorls'
-alias la='colorls -al'
+alias ls='exa --icons'
+alias ll='exa -l --icons'
 
 #FZF aliases
 alias fvi='vi $(fzf)'
 
 #Batcat to bat alias
 alias bat='batcat'
+
+alias cd='z'
 
 # rg
   # --field-match-separator ' ' - tell rg to separate the filename and linenumber with
@@ -26,4 +28,4 @@ alias bat='batcat'
 
 alias frg='rg --line-number --with-filename . --color=always | fzf --delimiter=":" --with-nth=3.. --preview "batcat --color=always {1} --highlight-line {2}" --preview-window ~8,+{2}-5'
 
-alias ams='ssh -i "/home/joe/terminal.pem" ubuntu@ec2-3-27-153-206.ap-southeast-2.compute.amazonaws.com' 
+alias aws='ssh -i "/home/joe/terminal.pem" ubuntu@ec2-3-27-153-206.ap-southeast-2.compute.amazonaws.com' 
