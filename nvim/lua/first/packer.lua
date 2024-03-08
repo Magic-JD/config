@@ -8,12 +8,14 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     -- Smooth scrolling
     use 'karb94/neoscroll.nvim'
+    -- rg learning and support
+    use "mangelozzi/rgflow.nvim"
     -- Adding a global note that can be accessed anywhere
     use 'backdround/global-note.nvim'
     -- Color theme
     use 'folke/tokyonight.nvim'
     -- Highlights only the paragraph that you are focused on
-    use 'junegunn/limelight.vim'
+    use "folke/twilight.nvim"
     -- Zen mode
     use 'junegunn/goyo.vim'
     -- Adds icons
@@ -37,6 +39,16 @@ return require('packer').startup(function(use)
         "kylechui/nvim-surround",
         tag = "*", -- Use for stability; omit to use `main` branch for the latest features
     })
+    -- Training for nvim surround
+    use({
+        "roobert/surround-ui.nvim",
+        dependencies = {
+            "kylechui/nvim-surround",
+            "folke/which-key.nvim",
+        },
+    })
+    -- Range highlighting
+    use "winston0410/range-highlight.nvim"
     -- Fuzzy find for nvim. Searches well and works nicely with grep
     use { "ibhagwan/fzf-lua",
         requires = { "nvim-tree/nvim-web-devicons" }
@@ -61,6 +73,8 @@ return require('packer').startup(function(use)
     use('mbbill/undotree')
     -- Git support
     use('tpope/vim-fugitive')
+    -- Git gutter lines
+    use 'lewis6991/gitsigns.nvim'
     -- Pretty status line
     use {
         'nvim-lualine/lualine.nvim',
@@ -73,8 +87,16 @@ return require('packer').startup(function(use)
     }
     -- Cool file manager? and folder navigation
     use "stevearc/oil.nvim"
+    -- Highlights lines that are too long
+    use 'lcheylus/overlength.nvim'
+    -- Tabline
+    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
     -- Add a terminal inside neovim in case you want to check something
     use {"akinsho/toggleterm.nvim", tag = '*'}
+    -- Add coloring to log files
+    use 'fei6409/log-highlight.nvim'
+    -- Sets up visual aids for LSP
+    use "dnlhc/glance.nvim"
     -- LSP
     use {
         'nvim-java/nvim-java',
