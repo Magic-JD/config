@@ -19,4 +19,4 @@ end, { desc = "Close all other buffers" })
 
 vim.keymap.set("n", "<leader>bD", function()
     vim.cmd("BufferLinePickClose")
-end, { desc = "Switch Tab" })
+end, { desc = "Delete tab" })

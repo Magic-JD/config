@@ -39,7 +39,9 @@ require("oil").setup({
   cleanup_delay_ms = 2000,
   -- Set to true to autosave buffers that are updated with LSP willRenameFiles
   -- Set to "unmodified" to only save unmodified buffers
-  lsp_rename_autosave = false,
+  lsp_file_methods = {
+      autosave_changes = true
+  },
   -- Constrain the cursor to the editable parts of the oil buffer
   -- Set to `false` to disable, or "name" to keep it on the file names
   constrain_cursor = "editable",

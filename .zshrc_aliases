@@ -1,6 +1,7 @@
 #Alias for ls to make it look better
-alias ls='exa --icons'
-alias ll='exa -l --icons'
+alias ls='eza -a --icons'
+alias ll='eza -l -a --icons --git'
+alias tree='eza --tree --icons'
 
 #FZF aliases
 alias fvi='vi $(fzf)'
@@ -29,3 +30,4 @@ alias cd='z'
 alias frg='rg --line-number --with-filename . --color=always | fzf --delimiter=":" --with-nth=3.. --preview "batcat --color=always {1} --highlight-line {2}" --preview-window ~8,+{2}-5'
 
 alias aws='ssh -i "/home/joe/terminal.pem" ubuntu@ec2-3-27-153-206.ap-southeast-2.compute.amazonaws.com' 
+

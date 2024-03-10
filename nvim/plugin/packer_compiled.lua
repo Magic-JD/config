@@ -119,11 +119,6 @@ _G.packer_plugins = {
     path = "/home/joe/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
-  ["fzf-lua"] = {
-    loaded = true,
-    path = "/home/joe/.local/share/nvim/site/pack/packer/start/fzf-lua",
-    url = "https://github.com/ibhagwan/fzf-lua"
-  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/joe/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",

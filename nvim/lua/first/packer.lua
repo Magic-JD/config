@@ -50,9 +50,7 @@ return require('packer').startup(function(use)
     -- Range highlighting
     use "winston0410/range-highlight.nvim"
     -- Fuzzy find for nvim. Searches well and works nicely with grep
-    use { "ibhagwan/fzf-lua",
-        requires = { "nvim-tree/nvim-web-devicons" }
-    }
+    use 'nvim-telescope/telescope.nvim'
     -- For syntax parsing
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
     -- For interacting with treesitter
