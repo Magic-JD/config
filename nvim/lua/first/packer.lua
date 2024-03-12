@@ -84,7 +84,7 @@ return require('packer').startup(function(use)
         after = 'tokyonight.nvim', -- Add your colorscheme plugin here
     }
     -- Cool file manager? and folder navigation
-    use "stevearc/oil.nvim"
+    use "echasnovski/mini.files"
     -- Highlights lines that are too long
     use 'lcheylus/overlength.nvim'
     -- Tabline
