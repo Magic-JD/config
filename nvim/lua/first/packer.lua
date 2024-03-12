@@ -71,6 +71,8 @@ return require('packer').startup(function(use)
     use('mbbill/undotree')
     -- Git support
     use('tpope/vim-fugitive')
+    -- Lazy git for good ui integration
+    use("kdheepak/lazygit.nvim")
     -- Git gutter lines
     use 'lewis6991/gitsigns.nvim'
     -- Pretty status line
