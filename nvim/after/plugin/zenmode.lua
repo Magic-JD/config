@@ -19,8 +19,7 @@ require('twilight').setup({
   exclude = {}, -- exclude these filetypes
 })
 
-
 vim.keymap.set("n", "<leader>mz", function()
     vim.cmd("Goyo")
     vim.cmd("Twilight")
-end, { desc = "See line difference" })
+end, { desc = "Enter zen mode 🧘" })
