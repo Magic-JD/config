@@ -22,7 +22,7 @@ eval $(thefuck --alias)
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(fzf git emoji-clock zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(fzf git web-search emoji-clock zsh-syntax-highlighting zsh-autosuggestions)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

@@ -67,6 +67,8 @@ return require('packer').startup(function(use)
         branch = "harpoon2",
         requires = { {"nvim-lua/plenary.nvim"} }
     }
+    -- Adding support for refactoring.
+    use "ThePrimeagen/refactoring.nvim"
     -- See changes through files
     use('mbbill/undotree')
     -- Git support
@@ -85,6 +87,8 @@ return require('packer').startup(function(use)
         'mawkler/modicator.nvim',
         after = 'tokyonight.nvim', -- Add your colorscheme plugin here
     }
+    -- Makes text input and renaming look nicer and behave smoother.
+    use {'stevearc/dressing.nvim'}
     -- Cool file manager? and folder navigation
     use "echasnovski/mini.files"
     -- Highlights lines that are too long
