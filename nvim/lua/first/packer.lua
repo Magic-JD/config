@@ -75,71 +75,66 @@ return require('packer').startup(function(use)
     use('tpope/vim-fugitive')
     -- Lazy git for good ui integration
     use("kdheepak/lazygit.nvim")
-    -- Git gutter lines
-    use 'lewis6991/gitsigns.nvim'
-    -- Pretty status line
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }
     -- Makes the number change color with the status bar
     use {
         'mawkler/modicator.nvim',
         after = 'tokyonight.nvim', -- Add your colorscheme plugin here
     }
-    -- Makes text input and renaming look nicer and behave smoother.
-    use {'stevearc/dressing.nvim'}
     -- Cool file manager? and folder navigation
     use "echasnovski/mini.files"
-    -- Highlights lines that are too long
-    use 'lcheylus/overlength.nvim'
-    -- Tabline
-    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
     -- Add a terminal inside neovim in case you want to check something
     use {"akinsho/toggleterm.nvim", tag = '*'}
+
+    -- ZONE BACKGROUND
     -- Add coloring to log files
     use 'fei6409/log-highlight.nvim'
+    -- Automatic completion of symbol pairs
+    use {
+        "windwp/nvim-autopairs",
+    }
+    -- Tabline
+    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
+    -- Highlights lines that are too long
+    use 'lcheylus/overlength.nvim'
+    -- Makes text input and renaming look nicer and behave smoother.
+    use {'stevearc/dressing.nvim'}
+    -- Pretty status line
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
+    -- Git gutter lines
+    use 'lewis6991/gitsigns.nvim'
+
+    -- ZONE LSP
     -- Sets up visual aids for LSP
     use "dnlhc/glance.nvim"
-    -- LSP
+    -- This configures text snippets. 
     use {
-        'nvim-java/nvim-java',
+        'hrsh7th/nvim-cmp',
         requires = {
-            'nvim-java/lua-async-await',
-            'nvim-java/nvim-java-core',
-            'nvim-java/nvim-java-test',
-            'nvim-java/nvim-java-dap',
-            'MunifTanjim/nui.nvim',
-            'neovim/nvim-lspconfig',
-            'mfussenegger/nvim-dap',
-            {
-                'williamboman/mason.nvim',
-                opts = {
-                    registries = {
-                        'github:nvim-java/mason-registry',
-                        'github:mason-org/mason-registry',
-                    },
-                },
-            }
-        },
-    }
-    -- LSP
-    use {
-        'VonHeikemen/lsp-zero.nvim',
-        requires = {
-            {'neovim/nvim-lspconfig'},
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-nvim-lsp'},
             {'hrsh7th/cmp-buffer'},
             {'hrsh7th/cmp-path'},
-            {'saadparwaiz1/cmp_luasnip'},
-            {'hrsh7th/cmp-nvim-lua'},
             {'L3MON4D3/LuaSnip'},
-            {'rafamadriz/friendly-snippets'}
+            {'saadparwaiz1/cmp_luasnip'},
+            {'rafamadriz/friendly-snippets'},
+            {'onsails/lspkind.nvim'},
         }
     }
-    -- Adds visual lines for lsp feedback
-    use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
+    -- Mason for lsp install.
+    use {
+        'williamboman/mason.nvim',
+        requires = {
+            {'williamboman/mason-lspconfig.nvim'},
+            {'WhoIsSethDaniel/mason-tool-installer.nvim'},
+        }
+    }
+    -- lsp configuration and application
+    use {
+        "neovim/nvim-lspconfig",
+        requires = {
+            { "hrsh7th/cmp-nvim-lsp" },
+            { "antosha417/nvim-lsp-file-operations" },
+        }
+    }
 end)
