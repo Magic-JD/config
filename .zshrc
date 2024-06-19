@@ -113,13 +113,18 @@ source ~/.zshrc_aliases
 source ~/.api_keys
 
 # Sets default editor to vim
-export VISUAL=vi
+export VISUAL=vim
 export EDITOR="$VISUAL"
 bindkey -v
 
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/home/joe/.cargo/bin
+
+export FLYCTL_INSTALL="/home/joe/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+xbanish &
