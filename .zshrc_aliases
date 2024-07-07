@@ -12,6 +12,8 @@ alias bat='batcat'
 
 alias cd='z'
 
+alias vim='vim -u NONE'
+
 # rg
   # --field-match-separator ' ' - tell rg to separate the filename and linenumber with
   # spaces to play well with fzf, (when recognizing index variables to use in the fzf
