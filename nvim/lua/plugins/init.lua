@@ -2,14 +2,14 @@ return {
   -- Smooth scrolling
   'karb94/neoscroll.nvim',
 
-  -- rg learning and support
-  "mangelozzi/rgflow.nvim",
-
   -- Adding a global note that can be accessed anywhere
   'backdround/global-note.nvim',
 
   -- Color theme
   'folke/tokyonight.nvim',
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "rose-pine/nvim", name = "rose-pine", priority = 1000 },
+  'rebelot/kanagawa.nvim',
 
   -- Highlights only the paragraph that you are focused on
   "folke/twilight.nvim",
@@ -80,9 +80,6 @@ return {
     dependencies = { {"nvim-lua/plenary.nvim"} }
   },
 
-  -- Adding support for refactoring.
-  "ThePrimeagen/refactoring.nvim",
-
   -- See changes through files
   'mbbill/undotree',
 
@@ -95,17 +92,12 @@ return {
   -- Makes the number change color with the status bar
   {
     'mawkler/modicator.nvim',
-    dependencies = 'tokyonight.nvim', -- Add your colorscheme plugin here
+    dependencies = 'catppuccin', -- Add your colorscheme plugin here
   },
 
   -- Cool file manager? and folder navigation
   "echasnovski/mini.files",
 
-  -- Add a terminal inside neovim in case you want to check something
-  { "akinsho/toggleterm.nvim", version = '*' },
-
-  -- Suggest optimizations
-  "m4xshen/hardtime.nvim",
 
   -- ZONE BACKGROUND
   -- Add coloring to log files
