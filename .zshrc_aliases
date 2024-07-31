@@ -12,6 +12,7 @@ alias bat='batcat'
 
 alias cd='z'
 
+alias vi='nvim'
 alias vim='vim -u NONE'
 
 # rg

@@ -37,3 +37,15 @@ RUN stow -d config .;
 RUN git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm;
 RUN ~/.tmux/plugins/tpm/scripts/install_plugins.sh;
 
+USER root
+RUN export LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*') && \
+    curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz";
+RUN tar xf lazygit.tar.gz lazygit;
+RUN install lazygit /usr/local/bin;
+
+USER 1000:1000
+
+RUN mkdir .config;
+RUN ln -s ~/config/nvim ~/.config/nvim;
+RUN nvim --headless "+Lazy! sync" +qa;
+
