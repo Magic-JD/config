@@ -92,7 +92,6 @@ eval "$(zoxide init zsh)"
 
 # Source own .files
 source ~/.zshrc_aliases
-source ~/.api_keys
 
 # Sets default editor to vim
 export VISUAL=vim
@@ -100,7 +99,7 @@ export EDITOR="$VISUAL"
 bindkey -v
 
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:/home/joe/.cargo/bin
+export PATH=$PATH:~/.cargo/bin
 
 export FLYCTL_INSTALL="/home/joe/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
@@ -113,8 +112,6 @@ fi;
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-. "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh)"
 eval "$(starship init zsh)"
