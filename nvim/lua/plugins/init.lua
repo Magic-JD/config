@@ -23,17 +23,6 @@ return {
   -- Adds Colors
   'NvChad/nvim-colorizer.lua',
 
-  -- ChatGPT integration
-  {
-    "jackMort/ChatGPT.nvim",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "folke/trouble.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
-  },
-
   -- Mini icons
   'echasnovski/mini.icons',
   -- Gives hints about what key you can use

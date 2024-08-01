@@ -22,7 +22,6 @@ RUN chsh -s $(which zsh);
 
 RUN apt install python3-dev python3-pip python3-setuptools pipx -y;
 RUN pip3 install https://github.com/nvbn/thefuck/archive/master.zip --break-system-packages;
-RUN echo "X11Forwarding yes" >> /etc/ssh/ssh_config;
 RUN apt install btop fzf bat zoxide fd-find ripgrep stow eza -y;
 
 RUN echo 'making sure not to cach';
