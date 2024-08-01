@@ -5,12 +5,10 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="$HOME/.local/bin/:$PATH"
 eval $(thefuck --alias)
 # Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(fzf git web-search emoji-clock zsh-syntax-highlighting zsh-autosuggestions)
-
+# Add wisely, as too many plugins slow down shell startup.                                                                                                                              
+plugins=(fzf)                                                                                                                                                                           
+echo "source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ${ZSOTDIR:-$HOME}/.zshrc
+echo "source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
