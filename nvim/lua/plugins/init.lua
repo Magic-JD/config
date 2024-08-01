@@ -149,8 +149,8 @@ return {
   },
 
   -- Personal
-  {
-    dir = '/home/joe/LuaProjects/NoisyVim.nvim',
-    name = 'noisy',
-  },
+  --{
+    --dir = '/home/joe/LuaProjects/NoisyVim.nvim',
+    --name = 'noisy',
+  --},
 }
