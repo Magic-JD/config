@@ -1,3 +1,3 @@
-local noisy = require("noisy")
+--local noisy = require("noisy")
 
-noisy.setup()
+--noisy.setup()
