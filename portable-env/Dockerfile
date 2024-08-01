@@ -39,7 +39,7 @@ RUN export LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield
 RUN tar xf lazygit.tar.gz lazygit;
 RUN install lazygit /usr/local/bin;
 
-RUN "REFRESH CONFIG"
+RUN echo "REFRESH CONFIG"
 RUN git clone https://github.com/Magic-JD/config.git;
 RUN stow -d config .;
 
@@ -49,5 +49,40 @@ RUN ~/.tmux/plugins/tpm/scripts/install_plugins.sh;
 RUN mkdir .config;
 RUN ln -s ~/config/nvim ~/.config/nvim;
 RUN nvim --headless "+Lazy! sync" +qa;
-RUN nvim --headless "+MasonInstallAll prettier actionlint bash-debug-adapter bash-language-server beautysh black checkstyle clang-format css-lsp cssmodules-language-server delve djlint docker-compose-language-service dockerfile-language-server emmet-ls erb-lint eslint_d gci go-debug-adapter gofumpt goimports goimports-reviser golangci-lint golangci-lint-langserver golines gomodifytags google-java-format gopls gotests gotestsum grammarly-languageserver graphql-language-service-cli html-lsp htmlbeautifier htmlhint htmx-lsp iferr impl isort java-debug-adapter java-language-server java-test jdtls jq js-debug-adapter json-to-struct lua-language-server lwc-language-server markuplint nilaway prettierd prisma-language-server pylint pyright revive rust-analyzer rustywind semgrep shellcheck shellharden shfmt snyk sonarlint-language-server sql-formatter sqlfluff sqlfmt sqlls standardjs staticcheck stimulus-language-server stylelint stylelint-lsp stylua svelte-language-server tailwindcss-language-server templ tree-sitter-cli trivy twiggy-language-server typescript-language-server typos typos-lsp unocss-language-server vscode-java-decompiler " +qall;
+RUN nvim --headless "+MasonInstall actionlint" +qa;
+RUN apt install npm -y;
+RUN apt install zip -y;
+RUN nvim --headless "+MasonInstall prettier bash-debug-adapter" +qa;
+RUN apt install golang-go -y;
+RUN nvim --headless "+MasonInstall bash-language-server beautysh black checkstyle clang-format css-lsp cssmodules-language-server delve djlint" +qa;
+RUN apt install ruby -y;
+RUN apt install ruby-dev -y;
+RUN nvim --headless "+MasonInstall erb-lint" +qa;
+RUN nvim --headless "+MasonInstall golangci-lint" +qa;
+RUN nvim --headless "+MasonInstall docker-compose-language-service dockerfile-language-server" +qa;
+RUN nvim --headless "+MasonInstall emmet-ls eslint_d gci" +qa;
+RUN nvim --headless "+MasonInstall go-debug-adapter gofumpt goimports" +qa;
+RUN nvim --headless "+MasonInstall goimports-reviser golangci-lint-langserver golines" +qa;
+RUN nvim --headless "+MasonInstall gomodifytags google-java-format gopls gotests gotestsum" +qa;
+RUN nvim --headless "+MasonInstall grammarly-languageserver graphql-language-service-cli html-lsp" +qa;
+RUN nvim --headless "+MasonInstall htmlbeautifier htmlhint htmx-lsp" +qa;
+RUN nvim --headless "+MasonInstall iferr impl isort" +qa;
+RUN apt install default-jdk -y;
+RUN apt install maven -y;
+RUN nvim --headless "+MasonInstall  java-language-server" +qa;
+RUN nvim --headless "+MasonInstall java-debug-adapter java-test" +qa;
+RUN nvim --headless "+MasonInstall jdtls jq js-debug-adapter" +qa;
+RUN nvim --headless "+MasonInstall json-to-struct lua-language-server lwc-language-server" +qa;
+RUN nvim --headless "+MasonInstall markuplint nilaway prettierd" +qa;
+RUN nvim --headless "+MasonInstall prisma-language-server pylint pyright" +qa;
+RUN nvim --headless "+MasonInstall revive rust-analyzer rustywind" +qa;
+RUN nvim --headless "+MasonInstall semgrep shellcheck shellharden shfmt snyk" +qa;
+RUN nvim --headless "+MasonInstall sonarlint-language-server sql-formatter sqlfluff" +qa;
+RUN nvim --headless "+MasonInstall sqlfmt sqlls standardjs" +qa;
+RUN nvim --headless "+MasonInstall staticcheck stimulus-language-server stylelint" +qa;
+RUN nvim --headless "+MasonInstall stylelint-lsp stylua svelte-language-server" +qa;
+RUN nvim --headless "+MasonInstall tailwindcss-language-server templ tree-sitter-cli" +qa;
+RUN nvim --headless "+MasonInstall trivy twiggy-language-server typescript-language-server" +qa;
+RUN nvim --headless "+MasonInstall typos typos-lsp unocss-language-server" +qa;
+RUN nvim --headless "+MasonInstall vscode-java-decompiler" +qa;
 RUN chown -R 1000:1000 $WD;
