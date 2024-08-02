@@ -3,26 +3,22 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # The fuck
 export PATH="$HOME/.local/bin/:$PATH"
+
+export STARSHIP_CONFIG=~/.starship.toml
+
 eval $(thefuck --alias)
 # Which plugins would you like to load?
 # Add wisely, as too many plugins slow down shell startup.                                                                                                                              
-plugins=(fzf)                                                                                                                                                                           
+# -> this is from oh my zsh might want to add fzf plugin back at some point plugins=(fzf)                                                                                                                                                                           
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -34,7 +30,7 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -90,6 +86,10 @@ eval "$(zoxide init zsh)"
 
 # Source own .files
 source ~/.zshrc_aliases
+# If there are non general aliases, source them
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
+fi
 
 # Sets default editor to vim
 export VISUAL=vim
@@ -98,10 +98,6 @@ bindkey -v
 
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/.cargo/bin
-
-export FLYCTL_INSTALL="/home/joe/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
-
 
 if [ $DISPLAY ]; then;
     (xbanish &)
