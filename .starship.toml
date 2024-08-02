@@ -84,6 +84,7 @@ format = ' [$symbol($version)]($style)'
 
 [java]
 format = ' [$symbol($version)]($style)'
+style = 'red'
 
 [julia]
 format = ' [$symbol($version)]($style)'
