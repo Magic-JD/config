@@ -86,3 +86,7 @@ RUN nvim --headless "+MasonInstall trivy twiggy-language-server typescript-langu
 RUN nvim --headless "+MasonInstall typos typos-lsp unocss-language-server" +qa;
 RUN nvim --headless "+MasonInstall vscode-java-decompiler" +qa;
 RUN chown -R 1000:1000 $WD;
+USER 1000:1000
+RUN cd config && git pull;
+RUN ~/config/create_git_config.sh;
+RUN cd config && stow .;
