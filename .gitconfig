@@ -1,3 +1,0 @@
-[include]
-        path = ~/.gitconfig.general
-        path = ~/.gitconfig.local
