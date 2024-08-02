@@ -11,6 +11,9 @@ eval $(thefuck --alias)
 # Add wisely, as too many plugins slow down shell startup.                                                                                                                              
 # -> this is from oh my zsh might want to add fzf plugin back at some point plugins=(fzf)                                                                                                                                                                           
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=93'
+
+
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #
 # Uncomment the following line to use case-sensitive completion.
