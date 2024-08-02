@@ -1,4 +1,6 @@
 .git
 .intellij
+.gitignore
 install_all.sh
 nvim
+portable-env
