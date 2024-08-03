@@ -94,6 +94,10 @@ if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
 fi
 
+if [ -f ~/start_up.sh ]; then
+    ~/start_up.sh
+fi
+#
 # Sets default editor to vim
 export VISUAL=vim
 export EDITOR="$VISUAL"

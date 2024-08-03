@@ -90,7 +90,27 @@ RUN apt install git-delta -y;
 ENV LANGUAGE en.UTF-8;
 RUN apt install language-pack-en -y;
 USER 1000:1000
-RUN echo test2;
+RUN echo test3;
 RUN cd config && git stash && git pull;
 RUN ~/config/create_git_config.sh;
 RUN cd config && stow .;
+RUN nvim --headless "+Lazy! sync" +qa;
+# Add Docker's official GPG key:
+USER root
+RUN apt-get update;
+RUN apt-get install ca-certificates curl;
+RUN install -m 0755 -d /etc/apt/keyrings;
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc;
+RUN chmod a+r /etc/apt/keyrings/docker.asc;
+RUN echo \
+   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+   tee /etc/apt/sources.list.d/docker.list > /dev/null;
+RUN apt-get update;
+RUN apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y;
+RUN newgrp docker;
+RUN service docker start;
+RUN usermod -aG docker joe;
+RUN apt-get install sudo -y;
+RUN echo "joe:joe" | chpasswd && adduser joe sudo;
+USER joe
