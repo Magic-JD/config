@@ -40,6 +40,9 @@ format = ' [$symbol($version)]($style)'
 [conda]
 format = ' [$symbol($version)]($style)'
 
+[container]
+format = ' [$symbol]($style)'
+
 [crystal]
 format = ' [$symbol($version)]($style)'
 
