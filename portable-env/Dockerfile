@@ -88,6 +88,7 @@ RUN nvim --headless "+MasonInstall vscode-java-decompiler" +qa;
 RUN chown -R 1000:1000 $WD;
 RUN apt install git-delta -y;
 USER 1000:1000
+RUN echo "update";
 RUN cd config && git stash && git pull;
 RUN ~/config/create_git_config.sh;
 RUN cd config && stow .;
