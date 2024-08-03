@@ -232,16 +232,16 @@ symbol = " "
 format = ' [$symbol( $version)]($style)'
 
 [git_status]
-ahead = '[${count}⇡ ](bold green)'
-diverged = '[⇕ ](bold 208)[${ahead_count}⇡](bold green)[${behind_count}⇣](bold red) '
-behind = '[${count}⇣ ](bold red)'
+ahead = '[${count}⇡](bold green) '
+diverged = '[⇕](bold 208)[${ahead_count}⇡](bold green)[${behind_count}⇣](bold red) '
+behind = '[${count}⇣](bold red) '
 untracked = '[${count}? ](bold 208)'
 modified = '[${count}~ ](bold 208)'
 renamed = '[${count}» ](bold 208)'
 staged = '[${count}+ ](bold green)'
 deleted = '[${count}✘ ](bold red)'
 stashed = ''
-format = "$all_status$ahead_behind\b "
+format = "$all_status$ahead_behind"
 
 [cmd_duration]
 disabled = true
