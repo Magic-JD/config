@@ -63,7 +63,7 @@ format = ' [$symbol($version)]($style)'
 [git_branch]
 symbol = " "
 style = 'bold green'
-format = '[$symbol$branch(:$remote_branch)]($style) '
+format = '[$branch(:$remote_branch)]($style) '
 
 [golang]
 format = ' [$symbol($version)]($style)'
