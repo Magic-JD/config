@@ -90,6 +90,7 @@ RUN apt install git-delta -y;
 ENV LANGUAGE en.UTF-8;
 RUN apt install language-pack-en -y;
 USER 1000:1000
+RUN echo test2;
 RUN cd config && git stash && git pull;
 RUN ~/config/create_git_config.sh;
 RUN cd config && stow .;
