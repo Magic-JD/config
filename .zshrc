@@ -83,7 +83,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export BAT_THEME="Catppuccin Mocha"
-export FZF_DEFAULT_OPTS="--ansi --preview-window 'top:70%' --preview 'batcat --color=always --style=header,grid --line-range :300 {}'"
+export FZF_DEFAULT_OPTS="--ansi --preview-window 'top:70%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 export FZF_DEFAULT_COMMAND="fd -t f"
 eval "$(zoxide init zsh)"
 
@@ -94,8 +94,8 @@ if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
 fi
 
-if [ -f ~/start_up.sh ]; then
-    ~/start_up.sh
+if [ -f ~/scripts/start_up.sh ]; then
+    ~/scripts/start_up.sh
 fi
 #
 # Sets default editor to vim
