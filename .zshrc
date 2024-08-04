@@ -82,7 +82,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
+export BAT_THEME="Catppuccin Mocha"
 export FZF_DEFAULT_OPTS="--ansi --preview-window 'top:70%' --preview 'batcat --color=always --style=header,grid --line-range :300 {}'"
 export FZF_DEFAULT_COMMAND="fd -t f"
 eval "$(zoxide init zsh)"

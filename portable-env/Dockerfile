@@ -113,5 +113,9 @@ RUN newgrp docker;
 RUN service docker start;
 RUN usermod -aG docker joe;
 RUN apt-get install sudo -y;
+RUN mkdir -p "$(bat --config-dir)/themes";
+RUN wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme;
+RUN bat cache --build;
+RUN cd config && git stash && git pull;
 RUN echo "joe:joe" | chpasswd && adduser joe sudo;
 USER joe
