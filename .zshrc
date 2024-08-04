@@ -116,6 +116,7 @@ export NVM_DIR="$HOME/.nvm"
 
 eval "$(atuin init zsh)"
 eval "$(starship init zsh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

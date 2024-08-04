@@ -1,24 +1,13 @@
-#! /bin/sh
-
-apt -y install zsh
-# After the above step you will need to log out of the computer and log back in again
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+#!/bin/bash
 
 
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+test -d ~/.linuxbrew
+eval "$(~/.linuxbrew/bin/brew shellenv)"
+test -d /home/linuxbrew/.linuxbrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+brew install bat lazygit starship zsh-autosuggestions zsh-syntax-highlighting atuin yazi btop fzf zoxide fd tmux ripgrep stow eza git-delta;
 
-apt install -y fzf
-apt install -y stow
-apt install -y highlight
-apt install -y htop
-apt install -y tig
+mkdir -p "$(bat --config-dir)/themes" && wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme && bat cache --build;
 
-sudo apt install -y python3-dev python3-pip python3-setuptools
-pip3 install thefuck --user
-
-#Install font
-#P10k configure

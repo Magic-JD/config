@@ -7,9 +7,6 @@ alias tree='eza --tree --icons'
 alias fvi='vi $(fzf)'
 alias fhg='history 0 | fzf'
 
-#Batcat to bat alias
-alias bat='batcat'
-
 alias cd='z'
 
 alias vi='nvim'
@@ -35,4 +32,3 @@ alias frg='rg --line-number --with-filename . --color=always | fzf --delimiter="
 
 alias aws='ssh -i "/home/joe/terminal.pem" ubuntu@ec2-3-27-153-206.ap-southeast-2.compute.amazonaws.com' 
 alias aws2='ssh -i "/home/joe/James-Smart-Jobs.pem" ubuntu@ec2-3-11-99-188.eu-west-2.compute.amazonaws.com' 
-
