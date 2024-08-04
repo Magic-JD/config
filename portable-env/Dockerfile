@@ -113,9 +113,12 @@ RUN newgrp docker;
 RUN service docker start;
 RUN usermod -aG docker joe;
 RUN apt-get install sudo -y;
-RUN mkdir -p "$(bat --config-dir)/themes";
-RUN wget -P "$(bat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme;
-RUN bat cache --build;
-RUN cd config && git stash && git pull;
+RUN apt-get install bat wget -y;
+RUN mkdir -p ~/.local/bin;
+RUN ln -s /usr/bin/batcat ~/.local/bin/bat;
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh;
+RUN mkdir -p "$(batcat --config-dir)/themes" && wget -P "$(batcat --config-dir)/themes" https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme && batcat cache --build;
+RUN ln -s $(which fdfind) ~/.local/bin/fd;
 RUN echo "joe:joe" | chpasswd && adduser joe sudo;
-USER joe
+USER 1000:1000
+RUN cd config && git stash && git pull;
