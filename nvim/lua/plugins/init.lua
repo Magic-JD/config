@@ -34,15 +34,6 @@ return {
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
   },
 
-  -- Training for nvim surround
-  {
-    "roobert/surround-ui.nvim",
-    dependencies = {
-      "kylechui/nvim-surround",
-      "folke/which-key.nvim",
-    },
-  },
-
   -- Range highlighting
   "winston0410/range-highlight.nvim",
 
