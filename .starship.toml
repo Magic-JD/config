@@ -24,7 +24,7 @@ disabled = true
 [directory]
 truncation_length = 100
 truncate_to_repo = false
-before_repo_root_style = 'cyan'
+before_repo_root_style = 'dimmed cyan'
 repo_root_style = 'bold cyan'
 read_only = " 󰌾"
 

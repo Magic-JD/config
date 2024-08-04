@@ -107,6 +107,7 @@ RUN echo \
    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
    tee /etc/apt/sources.list.d/docker.list > /dev/null;
 RUN apt-get update;
+RUN cargo install --locked yazi-fm yazi-cli;
 RUN apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y;
 RUN newgrp docker;
 RUN service docker start;
