@@ -5,6 +5,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="$HOME/.local/bin/:$PATH"
 
 export STARSHIP_CONFIG=~/.starship.toml
+export KITTY_CONFIG_DIRECTORY=~/kitty
 
 eval $(thefuck --alias)
 # Which plugins would you like to load?
