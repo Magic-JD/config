@@ -24,8 +24,9 @@ disabled = true
 [directory]
 truncation_length = 100
 truncate_to_repo = false
+style = 'cyan'
 before_repo_root_style = 'dimmed cyan'
-repo_root_style = 'bold cyan'
+repo_root_style = 'cyan'
 read_only = " 󰌾"
 
 [aws]
@@ -74,8 +75,12 @@ format = ' [$symbol( $version)]($style)'
 
 [git_branch]
 symbol = " "
-style = 'bold green'
+style = 'green'
 format = '[$branch(:$remote_branch)]($style) '
+
+[gradle]
+symbol = " 🅶"
+format = ' [$symbol( $version)]($style)'
 
 [golang]
 symbol = " "
@@ -105,6 +110,9 @@ format = ' [$symbol( $version)]($style)'
 symbol = " "
 format = ' [$symbol( $version)]($style)'
 style = 'red'
+
+[jobs]
+format = ' [$number$symbol]($style)'
 
 [julia]
 symbol = " "
@@ -233,13 +241,13 @@ format = ' [$symbol( $version)]($style)'
 
 [git_status]
 ahead = '[${count}⇡](bold green) '
-diverged = '[⇕](bold 208)[${ahead_count}⇡](bold green)[${behind_count}⇣](bold red) '
-behind = '[${count}⇣](bold red) '
+diverged = '[⇕](bold 208)[${ahead_count}⇡](bold green)[${behind_count}⇣](bold bright-red) '
+behind = '[${count}⇣](bold bright-red) '
 untracked = '[${count}? ](bold 208)'
 modified = '[${count}~ ](bold 208)'
 renamed = '[${count}» ](bold 208)'
 staged = '[${count}+ ](bold green)'
-deleted = '[${count}✘ ](bold red)'
+deleted = '[${count}✘ ](bold bright-red)'
 stashed = ''
 format = "$all_status$ahead_behind"
 
