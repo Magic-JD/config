@@ -1,12 +1,8 @@
 local true_height = vim.api.nvim_list_uis()[1]["height"]
-local height = math.floor(vim.api.nvim_list_uis()[1]["height"]/2)
+local height = math.floor((vim.api.nvim_list_uis()[1]["height"]/100)*40)
 
 local function calculateHeight()
-    if height > 15 then
-        return 10
-    else
-        return (height - 5) + (true_height % 2)
-    end
+    return (true_height - height - 5) + (true_height % 2)
 end
 
 require("noice").setup({
@@ -45,7 +41,7 @@ require("noice").setup({
             },
             size = {
                 width = 60,
-                height = calculateHeight(),
+                max_height = calculateHeight(),
             },
             border = {
                 style = "rounded",
@@ -54,15 +50,6 @@ require("noice").setup({
             win_options = {
                 winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
             },
-        },
-    },
-    routes = {
-        {
-            filter = {
-                event = "msg_show",
-                kind = "search_count",
-            },
-            opts = { skip = true },
         },
     },
 })
