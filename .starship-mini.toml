@@ -1,0 +1,263 @@
+# A minimal left prompt
+format = """$username\
+$hostname\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$character"""
+
+# move the rest of the prompt to the right
+right_format = """$all"""
+
+
+add_newline = false
+[line_break]
+disabled = true
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+style = 'cyan'
+before_repo_root_style = 'dimmed cyan'
+repo_root_style = 'cyan'
+read_only = " 󰌾"
+
+[aws]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[buf]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[c]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[conda]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[container]
+format = ' [$symbol]($style)'
+
+[crystal]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[dart]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[docker_context]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[elixir]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[elm]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[fennel]
+format = ' [$symbol]($style)'
+
+[fossil_branch]
+
+[git_branch]
+symbol = " "
+truncation_length = 10
+style = 'green'
+format = '[$branch(:$remote_branch)]($style) '
+
+[gradle]
+symbol = " 🅶"
+format = ' [$symbol]($style)'
+
+[golang]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[guix_shell]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[haskell]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[haxe]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[hg_branch]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[hostname]
+ssh_symbol = " "
+format = ' [$symbol]($style)'
+
+[java]
+symbol = " "
+format = ' [$symbol]($style)'
+style = 'red'
+
+[jobs]
+format = ' [$number$symbol]($style)'
+
+[julia]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[kotlin]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[lua]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[memory_usage]
+symbol = " 󰍛"
+format = '[$symbol]($style)'
+
+[meson]
+symbol = " 󰔷"
+format = ' [$symbol]($style)'
+
+[nim]
+symbol = " 󰆥"
+format = ' [$symbol]($style)'
+
+[nix_shell]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[nodejs]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[ocaml]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
+
+[package]
+symbol = " 󰏗"
+format = ' [$symbol]($style)'
+
+[perl]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[php]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[pijul_channel]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[python]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[rlang]
+symbol = " 󰟔"
+format = ' [$symbol]($style)'
+
+[ruby]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[rust]
+symbol = " 󱘗"
+format = ' [$symbol]($style)'
+
+[scala]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[swift]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[zig]
+symbol = " "
+format = ' [$symbol]($style)'
+
+[git_status]
+disabled = true
+ahead = '[${count}⇡](bold green) '
+diverged = '[⇕](bold 208)[${ahead_count}⇡](bold green)[${behind_count}⇣](bold bright-red) '
+behind = '[${count}⇣](bold bright-red) '
+untracked = '[${count}? ](bold 208)'
+modified = '[${count}~ ](bold 208)'
+renamed = '[${count}» ](bold 208)'
+staged = '[${count}+ ](bold green)'
+deleted = '[${count}✘ ](bold bright-red)'
+stashed = ''
+format = "$all_status$ahead_behind"
+
+[cmd_duration]
+disabled = true
+
+[time]
+disabled = true
+format = '[$time]($style) '
+time_format = '%T'
+utc_time_offset = '+7'

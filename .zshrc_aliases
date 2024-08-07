@@ -14,3 +14,5 @@ alias vim='vim -u NONE'
 
 alias frg='rg --line-number --with-filename . --color=always | fzf --delimiter=":" --with-nth=3.. --preview "batcat --color=always {1} --highlight-line {2}" --preview-window ~8,+{2}-5'
 alias prg='~/scripts/pretty_rg.sh'
+alias landing='export STARSHIP_CONFIG=~/.starship-mini.toml'
+alias takeoff='export STARSHIP_CONFIG=~/.starship.toml'
