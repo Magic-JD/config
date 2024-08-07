@@ -20,3 +20,5 @@ alias prg='~/scripts/pretty_rg.sh'
 # Starship
 alias landing='export STARSHIP_CONFIG=~/.starship-mini.toml'
 alias takeoff='export STARSHIP_CONFIG=~/.starship.toml'
+
+alias fgc='git checkout $(git branch | fzf)'
