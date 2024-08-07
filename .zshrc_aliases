@@ -4,7 +4,7 @@ alias ll='eza -l -a --icons --git'
 alias tree='eza --tree --icons'
 
 #FZF aliases
-alias fvi='vi $(fzf)'
+alias fvi='~/scripts/fvi.sh'
 alias frg='~/scripts/file_rg.sh'
 
 # Use zoxide to change directory
