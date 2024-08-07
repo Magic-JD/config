@@ -1,8 +1,14 @@
 #!/bin/bash
 
-export FZF_DEFAULT_OPTS="--ansi --preview-window 'top:70%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
+FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --ansi --delimiter=':' --with-nth=3.. --preview 'bat --style=header,grid --color=always {1} --highlight-line {2}' --preview-window '~4,+{2}-3:top'"
+
 if [[ $1 ]]; then
-    rg --line-number --with-filename . -g "$1" --color=always | fzf --ansi --delimiter=":" --with-nth=3.. --preview "bat --color=always {1} --highlight-line {2}" --preview-window ~8,+{2}-5;
+    RG_RESULT=$(rg --line-number --with-filename . -g "$1" --color=always | fzf)
 else
-    rg --line-number --with-filename . --color=always | fzf --delimiter=":" --with-nth=3.. --preview "bat --color=always {1} --highlight-line {2}" --preview-window ~8,+{2}-5;
+    RG_RESULT=$(rg --line-number --with-filename . --color=always | fzf)
 fi
+
+if [[ -n $RG_RESULT ]]; then
+    echo $RG_RESULT | awk -F: '{print "+"$2" "$1}' | xargs vi
+fi
+

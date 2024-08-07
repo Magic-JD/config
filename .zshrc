@@ -83,6 +83,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export BAT_THEME="Catppuccin Mocha"
+export FZF_DEFAULT_OPTS="--tmux 90% --bind change:top"
 export FZF_DEFAULT_COMMAND="fd -t f"
 eval "$(zoxide init zsh)"
 
