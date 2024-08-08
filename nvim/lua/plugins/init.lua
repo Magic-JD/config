@@ -2,9 +2,6 @@ return {
   -- Smooth scrolling
   'karb94/neoscroll.nvim',
 
-  -- Adding a global note that can be accessed anywhere
-  'backdround/global-note.nvim',
-
   -- Color theme
   'folke/tokyonight.nvim',
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },

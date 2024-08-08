@@ -30,3 +30,4 @@ vim.opt.updatetime = 50
 vim.opt.showmode = false
 vim.opt.hlsearch = true
 vim.api.nvim_set_keymap('n', '<leader>/', ':noh<cr>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<leader>nn', ':!global-note<cr>', {noremap = true})

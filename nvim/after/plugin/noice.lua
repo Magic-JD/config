@@ -65,3 +65,8 @@ require("lualine").setup({
         },
     },
 })
+require("notify").setup({
+  timeout = 200,
+  stages = 'fade',
+  render = 'compact',
+})
