@@ -9,6 +9,6 @@ else
 fi
 
 if [[ -n $RG_RESULT ]]; then
-	echo $RG_RESULT | awk -F: '{print "+"$2" "$1}' | xargs vi
+	echo "$RG_RESULT" | awk -F: '{print "+"$2" "$1}' | xargs vi
 fi
 
