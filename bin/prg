@@ -1,5 +1,3 @@
 #!/bin/bash
 
-function prg {
-    rg "$1" --json | delta
-}
+rg "$1" --json | delta

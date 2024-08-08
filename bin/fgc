@@ -1,14 +1,12 @@
 #!/bin/bash
 
-function fgc() {
-    if ! [[ $(git rev-parse --is-inside-work-tree) == 'true' ]]; then
-        echo "Not a git directory!";
-        exit 1;
-    fi;
+if ! [[ $(git rev-parse --is-inside-work-tree) == 'true' ]]; then
+    echo "Not a git directory!";
+    exit 1;
+fi;
 
-    VAR=$(git branch | fzf)
+VAR=$(git branch | fzf +m)
 
-    if [[ -n $VAL ]]; then
-        git checkout $VAL
-    fi
-}
+if [[ -n $VAL ]]; then
+    git checkout $VAL
+fi
