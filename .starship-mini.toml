@@ -75,7 +75,7 @@ format = ' [$symbol]($style)'
 
 [git_branch]
 symbol = " "
-truncation_length = 10
+truncation_length = 15
 style = 'green'
 format = '[$branch(:$remote_branch)]($style) '
 
