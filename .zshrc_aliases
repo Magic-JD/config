@@ -3,10 +3,6 @@ alias ls='eza -a --icons'
 alias ll='eza -l -a --icons --git'
 alias tree='eza --tree --icons'
 
-#FZF aliases
-alias fvi='~/scripts/fvi.sh'
-alias frg='~/scripts/file_rg.sh'
-
 # Use zoxide to change directory
 alias cd='z'
 
@@ -14,11 +10,7 @@ alias cd='z'
 alias vi='nvim'
 alias vim='vim -u NONE'
 
-# Script aliases
-alias prg='~/scripts/pretty_rg.sh'
-
 # Starship
 alias landing='export STARSHIP_CONFIG=~/.starship-mini.toml'
 alias takeoff='export STARSHIP_CONFIG=~/.starship.toml'
 
-alias fgc='git checkout $(git branch | fzf)'

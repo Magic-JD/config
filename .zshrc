@@ -97,6 +97,10 @@ fi
 if [ -f ~/scripts/start_up.sh ]; then
     ~/scripts/start_up.sh
 fi
+
+export PATH=$PATH:~/bin
+#for f in ~/bin/*; do source $f; done
+
 #
 # Sets default editor to vim
 export VISUAL=vim
