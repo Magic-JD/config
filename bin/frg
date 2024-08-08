@@ -1,0 +1,16 @@
+#!/bin/bash
+
+function frg() {
+    FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --ansi --delimiter=':' --with-nth=3.. --preview 'bat --style=header,grid --color=always {1} --highlight-line {2}' --preview-window '~4,+{2}-3:top'"
+
+    if [[ $1 ]]; then
+        RG_RESULT=$(rg --line-number --with-filename . -g "$1" --color=always | fzf)
+    else
+        RG_RESULT=$(rg --line-number --with-filename . --color=always | fzf)
+    fi
+
+    if [[ -n $RG_RESULT ]]; then
+        echo $RG_RESULT | awk -F: '{print "+"$2" "$1}' | xargs vi
+    fi
+}
+
