@@ -7,7 +7,7 @@ alias tree='eza --tree --icons'
 alias cd='z'
 
 # Neovim
-alias vi='nvim'
+alias vi='vii'
 alias vim='vim -u NONE'
 
 # Starship

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --select-1 --ansi --preview-window 'top:70%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
+
+FILES=$(ls -A | fzf -0 --query "$*")
+
+if [[ -n $FILES ]]; then
+    echo $FILES | xargs $EDITOR; 
+else
+    read -p "Create file $1? (y/n): " CONT
+    if [ "$CONT" = "y" ]; then
+        nvim $1;
+    fi
+fi
