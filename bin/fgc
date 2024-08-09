@@ -5,8 +5,8 @@ if ! [[ $(git rev-parse --is-inside-work-tree) == 'true' ]]; then
     exit 1;
 fi;
 
-VAR=$(git branch | fzf +m)
+VAR=$(git branch $1 | fzf +m)
 
-if [[ -n $VAL ]]; then
-    git checkout $VAL
+if [[ -n $VAR ]]; then
+    git checkout $VAR
 fi
