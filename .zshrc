@@ -101,6 +101,16 @@ fi
 export PATH=$PATH:~/bin
 #for f in ~/bin/*; do source $f; done
 
+# Not 100% sure why this will not work as an executable but oh well
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 #
 # Sets default editor to vim
 export VISUAL=vim
