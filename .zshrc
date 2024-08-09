@@ -83,8 +83,8 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export BAT_THEME="Catppuccin Mocha"
-export FZF_DEFAULT_OPTS="--tmux 90% -m --bind 'change:top,tab:toggle-up,btab:toggle-all'"
-export FZF_DEFAULT_COMMAND="fd -t f"
+export FZF_DEFAULT_OPTS="--tmux 90% -m --bind 'change:top,tab:toggle-up,btab:toggle-all' --color"
+export FZF_DEFAULT_COMMAND="fd -t f -c always"
 eval "$(zoxide init zsh)"
 
 # Source own .files
