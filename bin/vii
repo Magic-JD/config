@@ -6,7 +6,7 @@ FILES=$(ls -A | fzf -0 --query "$*")
 
 if [[ -n $FILES ]]; then
     echo $FILES | xargs $EDITOR; 
-else
+elif [[ "$1" == "$*" ]]; then
     read -p "Create file $1? (y/n): " CONT
     if [ "$CONT" = "y" ]; then
         nvim $1;
