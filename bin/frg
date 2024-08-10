@@ -1,11 +1,13 @@
 #!/bin/bash
 
+export DELTA_FEATURES=+file-decoration-style=none
+
 FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --exact --ansi --delimiter=':' --with-nth=3.. --preview 'bat --style=header,grid --color=always {1} --highlight-line {2}' --preview-window '~4,+{2}-3:top'"
 
 if [[ $1 ]]; then
-	RG_RESULT=$(rg --line-number --with-filename . -g "$1" --color=always | fzf)
+	RG_RESULT=$(rg --line-number --with-filename . -g "$1" --color=always | delta | fzf)
 else
-	RG_RESULT=$(rg --line-number --with-filename . --color=always | fzf)
+	RG_RESULT=$(rg --line-number --with-filename . --color=always | delta | fzf)
 fi
 
 FIRST_LINE=$(echo "$RG_RESULT" | awk 'NR==1 {print; exit}')
