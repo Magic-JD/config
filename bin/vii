@@ -1,14 +1,40 @@
 #!/bin/bash
 
-FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --select-1 --ansi --preview-window 'top:70%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
+# If opening or creating sub folder file - act as normal
+if [[ "$*" == *"/"* ]]; then
+   $EDITOR "$*"
+   exit 0
+fi
 
-FILES=$(ls -A | fzf -0 --query "$*")
+# Get all files in directory
+FILES=$(ls -A)
 
-if [[ -n $FILES ]]; then
-    echo $FILES | xargs $EDITOR; 
-elif [[ "$1" == "$*" ]]; then
+# Find any exact match
+RG_FILE=$(echo "$FILES" | rg -Fx "$*")
+
+# If an exact match exists - then open it directly
+if [ ! "$RG_FILE" == "" ] && [ "$(echo "$RG_FILE" | wc -l)" == "1" ]; then
+    $EDITOR $RG_FILE
+    exit 0
+fi
+
+# Fzf for best match
+FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+    --select-1 \
+    --preview-window 'top:70%' \
+    --preview 'preview {}'"
+FOUND_FILE=$(ls -A | fzf -0 --query "$*")
+
+# If one or more results are found, open them.
+if [[ -n $FOUND_FILE ]]; then
+    echo $FOUND_FILE | xargs $EDITOR; 
+    exit 0
+fi
+
+# If the file found is not a fuzzy match attempt (has spaces) the verify before creating it
+if [ -n "$1" ] && [ "$1" == "$*" ]; then
     read -p "Create file $1? (y/n): " CONT
     if [ "$CONT" = "y" ]; then
-        nvim $1;
+        $EDITOR $1;
     fi
 fi
