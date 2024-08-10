@@ -1,0 +1,12 @@
+#!/bin/bash
+
+
+SESSION_NAME=$(tmux display-message -p '#S')
+FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS +m --with-nth=2 --select-1 --ansi --preview-window 'right:90%' --preview 'tmux capture-pane -ep -t $SESSION_NAME:{1}'"
+
+VAR=$(tmux list-windows | sed 's/://g' | fzf --query "$*")
+
+if [[ -n $VAR ]]; then
+    VAR="$SESSION_NAME:$(echo "$VAR" | awk '{print $1}')"
+    tmux switch-client -t $VAR
+fi
