@@ -68,7 +68,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+export EDITOR='nvim'
 # fi
 
 # Compilation flags
@@ -113,8 +113,7 @@ function yy() {
 
 #
 # Sets default editor to vim
-export VISUAL=vim
-export EDITOR="$VISUAL"
+export VISUAL=nvim
 bindkey -v
 
 export PATH=$PATH:/usr/local/go/bin
