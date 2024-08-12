@@ -1,6 +1,33 @@
+---- Set up lsp for bash
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'sh',
+  callback = function()
+    vim.lsp.start({
+      name = 'bash-language-server',
+      cmd = { 'bash-language-server', 'start' },
+    })
+  end,
+})
+-- For Java
+require("java").setup({
+    -- your nvim-java configuration goes here
+})
 -- import lspconfig plugin
 local lspconfig = require("lspconfig")
-
+lspconfig.jdtls.setup({
+    settings = {
+        java = {
+            configuration = {
+                runtimes = {
+                    {
+                        path = "/home/joe/.sdkman/candidates/java/current",
+                        default = true,
+                    }
+                }
+            }
+        }
+    }
+})
 -- import cmp-nvim-lsp plugin
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -131,12 +158,6 @@ lspconfig["pyright"].setup({
 
 -- configure go server
 lspconfig["gopls"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-})
-
--- configure java server
-lspconfig["jdtls"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })
