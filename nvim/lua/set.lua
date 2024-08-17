@@ -26,6 +26,8 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
+vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
+
 vim.opt.updatetime = 50
 vim.opt.showmode = false
 vim.opt.hlsearch = true
