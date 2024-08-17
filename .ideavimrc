@@ -6,16 +6,28 @@
 set nu
 set relativenumber
 
-"" -- Suggested options --
-" Show a few lines of context around the cursor. Note that this makes the
-" text scroll if you mouse-click near the start or end of the window.
-set scrolloff=5
+set scrolloff=10
+set showmode
+set showcmd
+set visualbell
+set clipboard+=unnamed
 
-" Do incremental searching.
+
+set ignorecase
+set smartcase
 set incsearch
+set hlsearch
+
+set which-key
+set nerdtree
 
 " Don't use Ex mode, use Q for formatting.
 map Q gq
+
+" honor camel case for words
+map w [w
+map e ]w
+map b [b
 
 " --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
 
@@ -28,14 +40,33 @@ Plug 'tpope/vim-surround'
 
 
 let mapleader=" "
-map <leader>irr <Action>(RenameElement)
-map <leader>irs <Action>(ChangeSignature)
+
+" Reload
 nmap <leader>is <action>(IdeaVim.ReloadVimRc.reload)<CR>
 
+" Refactoring
+map <leader>irr <Action>(RenameElement)
+map <leader>irs <Action>(ChangeSignature)
+
+" Navigation
 map gi <Action>(GotoImplementation)
+map <leader>fF <Action>(SearchEverywhere)
+map <leader>ff <Action>(GotoFile)
+map <leader>rg <Action>(FindInPath)
+map <leader>- :NERDTreeToggle<CR>
+map <leader>q <action>(CloseContent)
+
+" Go to code
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gy <Action>(GotoTypeDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+nmap <leader>gu <Action>(ShowUsages)
+nmap <leader>gt <Action>(GotoTest)
+nmap <leader>gf <Action>(Forward)
+nmap <leader>gb <Action>(Back)
+
+" Debugging
 map <leader>idb <Action>(ToggleLineBreakpoint)
 
-map gi <action>(GotoImplementation)
-map w [w
-map e ]w
-map b [b
+" Windows
+map <leader>tt <Action>(ActivateTerminalToolWindow)
