@@ -116,10 +116,11 @@ return {
       {'rafamadriz/friendly-snippets'},
       {'onsails/lspkind.nvim'},
     }
-  },
-
-  -- Mason for lsp install.
-  {
+},
+-- formatting
+"stevearc/conform.nvim",
+-- Mason for lsp install.
+{
     'williamboman/mason.nvim',
     dependencies = {
       {'williamboman/mason-lspconfig.nvim'},
