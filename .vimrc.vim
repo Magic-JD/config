@@ -7,7 +7,7 @@ set scrolloff=10
 set showmode
 set showcmd
 set visualbell
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 
 
 set ignorecase
