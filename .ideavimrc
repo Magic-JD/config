@@ -2,27 +2,10 @@
 "   the same commands as the original .vimrc configuration.
 " You can find a list of commands here: https://jb.gg/h38q75
 " Find more examples here: https://jb.gg/share-ideavimrc
-
-set nu
-set relativenumber
-
-set scrolloff=10
-set showmode
-set showcmd
-set visualbell
-set clipboard+=unnamed
-
-
-set ignorecase
-set smartcase
-set incsearch
-set hlsearch
+source ~/.vimrc.vim
 
 set which-key
 set nerdtree
-
-" Don't use Ex mode, use Q for formatting.
-map Q gq
 
 " honor camel case for words
 map w [w
@@ -39,8 +22,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 
 
-let mapleader=" "
-
 " Reload
 nmap <leader>is <action>(IdeaVim.ReloadVimRc.reload)<CR>
 
@@ -52,6 +33,7 @@ map <leader>irs <Action>(ChangeSignature)
 map gi <Action>(GotoImplementation)
 map <leader>fF <Action>(SearchEverywhere)
 map <leader>ff <Action>(GotoFile)
+map <leader>fr <Action>(RecentFiles)
 map <leader>rg <Action>(FindInPath)
 map <leader>- :NERDTreeToggle<CR>
 map <leader>q <action>(CloseContent)
@@ -64,6 +46,10 @@ nmap <leader>gu <Action>(ShowUsages)
 nmap <leader>gt <Action>(GotoTest)
 nmap <leader>gf <Action>(Forward)
 nmap <leader>gb <Action>(Back)
+nmap <leader>ge <Action>(GotoNextError)
+
+" Vcs
+nmap <leader>vb <Action>(Annotate)
 
 " Debugging
 map <leader>idb <Action>(ToggleLineBreakpoint)
