@@ -117,6 +117,8 @@ return {
       {'onsails/lspkind.nvim'},
     }
 },
+-- camel case
+{ "chrisgrieser/nvim-spider", lazy = true },
 -- formatting
 "stevearc/conform.nvim",
 -- Mason for lsp install.

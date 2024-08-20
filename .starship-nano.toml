@@ -1,0 +1,252 @@
+# A minimal left prompt
+format = """$directory\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$character"""
+
+
+
+add_newline = false
+[line_break]
+disabled = true
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+style = 'cyan'
+before_repo_root_style = 'dimmed cyan'
+repo_root_style = 'cyan'
+read_only = " 󰌾"
+
+[aws]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[buf]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[c]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[conda]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[container]
+format = ' [$symbol]($style)'
+
+[crystal]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[dart]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[docker_context]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[elixir]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[elm]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[fennel]
+format = ' [$symbol( $version)]($style)'
+
+[fossil_branch]
+
+[git_branch]
+symbol = " "
+style = 'green'
+format = '[$branch(:$remote_branch)]($style) '
+
+[gradle]
+symbol = " 🅶"
+format = ' [$symbol( $version)]($style)'
+
+[golang]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[guix_shell]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[haskell]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[haxe]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[hg_branch]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[hostname]
+ssh_symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[java]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+style = 'red'
+
+[jobs]
+format = ' [$number$symbol]($style)'
+
+[julia]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[kotlin]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[lua]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[memory_usage]
+symbol = " 󰍛"
+format = '[$symbol]($style)'
+
+[meson]
+symbol = " 󰔷"
+format = ' [$symbol( $version)]($style)'
+
+[nim]
+symbol = " 󰆥"
+format = ' [$symbol( $version)]($style)'
+
+[nix_shell]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[nodejs]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[ocaml]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
+
+[package]
+symbol = " 󰏗"
+format = ' [$symbol]($style)'
+
+[perl]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[php]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[pijul_channel]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[python]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[rlang]
+symbol = " 󰟔"
+format = ' [$symbol( $version)]($style)'
+
+[ruby]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[rust]
+symbol = " 󱘗"
+format = ' [$symbol( $version)]($style)'
+
+[scala]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[swift]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[zig]
+symbol = " "
+format = ' [$symbol( $version)]($style)'
+
+[git_status]
+ahead = '[${count}⇡](bold green) '
+diverged = '[⇕](bold 208)[${ahead_count}⇡](bold green)[${behind_count}⇣](bold bright-red) '
+behind = '[${count}⇣](bold bright-red) '
+untracked = '[${count}? ](bold 208)'
+modified = '[${count}~ ](bold 208)'
+renamed = '[${count}» ](bold 208)'
+staged = '[${count}+ ](bold green)'
+deleted = '[${count}✘ ](bold bright-red)'
+stashed = ''
+format = "$all_status$ahead_behind"
+
+[cmd_duration]
+disabled = true
+
+[time]
+disabled = true
+format = '[$time]($style) '
+time_format = '%T'
+utc_time_offset = '+7'

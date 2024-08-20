@@ -5,6 +5,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="$HOME/.local/bin/:$PATH"
 
 export STARSHIP_CONFIG=~/.starship.toml
+if [ "$TERMINAL_EMULATOR" = "JetBrains-JediTerm" ]; then
+    export STARSHIP_CONFIG=~/.starship-nano.toml
+fi;
 
 eval $(thefuck --alias)
 # Which plugins would you like to load?
