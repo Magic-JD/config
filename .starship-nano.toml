@@ -100,7 +100,7 @@ format = ' [$symbol( $version)]($style)'
 [java]
 symbol = " "
 format = ' [$symbol( $version)]($style)'
-style = 'red'
+style = 'bright-red'
 
 [jobs]
 format = ' [$number$symbol]($style)'

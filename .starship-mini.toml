@@ -110,7 +110,7 @@ format = ' [$symbol]($style)'
 [java]
 symbol = " "
 format = ' [$symbol]($style)'
-style = 'red'
+style = 'bright-red'
 
 [jobs]
 format = ' [$number$symbol]($style)'
