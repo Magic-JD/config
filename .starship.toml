@@ -109,7 +109,7 @@ format = ' [$symbol( $version)]($style)'
 [java]
 symbol = " "
 format = ' [$symbol( $version)]($style)'
-style = 'bright-red'
+style = 'bold bright-red'
 
 [jobs]
 format = ' [$number$symbol]($style)'
