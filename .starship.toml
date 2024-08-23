@@ -239,6 +239,9 @@ format = ' [$symbol( $version)]($style)'
 symbol = " "
 format = ' [$symbol( $version)]($style)'
 
+[battery]
+disabled = true
+
 [git_status]
 ahead = '[${count}⇡](bold green) '
 diverged = '[⇕](bold 208)[${ahead_count}⇡](bold green)[${behind_count}⇣](bold bright-red) '
