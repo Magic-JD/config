@@ -20,6 +20,13 @@ config.colors = {
   cursor_fg = '#1e1e2e',
   visual_bell = 'black',
 }
+config.bold_brightens_ansi_colors = "No"
+config.freetype_load_flags = 'NO_HINTING'
+config.font_size = 14.0
+config.front_end = 'OpenGL'
+config.freetype_load_target = 'Light'
+config.freetype_render_target = 'HorizontalLcd'
+config.cell_width = 0.9
 config.keys = {
     {
         key = 'F5',
