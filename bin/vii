@@ -23,7 +23,7 @@ FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
     --select-1 \
     --preview-window 'top:70%' \
     --preview 'preview {}'"
-FOUND_FILE=$(eza -a --color=always | fzf -0 --query "$*")
+FOUND_FILE=$(eza -a --color=always --icons=always | fzf -0 --query "$*")
 
 # If one or more results are found, open them.
 if [[ -n $FOUND_FILE ]]; then
