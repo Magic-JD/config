@@ -3,7 +3,7 @@ let mapleader=" "
 set nu
 set relativenumber
 
-set scrolloff=10
+set scrolloff=8
 set showmode
 set showcmd
 set visualbell
