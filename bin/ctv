@@ -1,0 +1,5 @@
+#!/bin/bash
+
+CLIPBOARD="$HOME/.clipboard.txt"
+
+cat $CLIPBOARD

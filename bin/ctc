@@ -1,0 +1,13 @@
+#!/bin/bash
+
+INPUT=$(cat)
+CLIPBOARD="$HOME/.clipboard.txt"
+CLIPBOARD_HISTORY="$HOME/.clipboard_history.txt"
+
+if [ -f $CLIPBOARD ]; then
+    cat $CLIPBOARD >> $CLIPBOARD_HISTORY
+    echo "---" >> $CLIPBOARD_HISTORY
+else
+    touch $CLIPBOARD
+fi
+echo "$INPUT" > $CLIPBOARD
