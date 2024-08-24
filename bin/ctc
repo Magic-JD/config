@@ -11,5 +11,5 @@ else
     touch $CLIPBOARD
 fi
 echo "$INPUT" > $CLIPBOARD
-vim -es "$CLIPBOARD" +'%y+' +':q!' >/dev/null 2>&1
-
+vim -es "$CLIPBOARD" +'%y+' +':q!'
+exit 0 # I dont know why otherwise this script is exiting with an error but :shrug:
