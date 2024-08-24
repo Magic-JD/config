@@ -11,3 +11,5 @@ else
     touch $CLIPBOARD
 fi
 echo "$INPUT" > $CLIPBOARD
+vim -es "$CLIPBOARD" +'%y+' +':q!' >/dev/null 2>&1
+
