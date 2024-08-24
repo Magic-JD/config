@@ -23,11 +23,11 @@ FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
     --select-1 \
     --preview-window 'top:70%' \
     --preview 'preview {}'"
-FOUND_FILE=$(eza -a --color=always --icons=always | fzf -0 --query "$*")
+FOUND_FILE=$(eza -a --color=always --icons=always | fzf -0 --query "$*" | awk '{ print $NF }')
 
 # If one or more results are found, open them.
 if [[ -n $FOUND_FILE ]]; then
-    echo $FOUND_FILE | awk '{ print $NF }' | xargs $EDITOR; 
+    echo $FOUND_FILE | xargs $EDITOR; 
     exit 0
 fi
 
