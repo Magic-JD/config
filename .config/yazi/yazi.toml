@@ -1,0 +1,12 @@
+[manager]
+show_hidden=true
+
+[opener]
+watch = [
+	{ run = 'vlc "$@"', orphan = true },
+]
+
+[open]
+prepend_rules = [
+	{ name = "*.mkv", use = "watch"},
+]
