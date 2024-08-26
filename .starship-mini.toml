@@ -241,7 +241,7 @@ symbol = " "
 format = ' [$symbol]($style)'
 
 [git_status]
-disabled = true
+disabled = false
 ahead = '[${count}⇡](bold green) '
 diverged = '[⇕](bold 208)[${ahead_count}⇡](bold green)[${behind_count}⇣](bold bright-red) '
 behind = '[${count}⇣](bold bright-red) '
