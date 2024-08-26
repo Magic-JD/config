@@ -9,4 +9,5 @@ watch = [
 [open]
 prepend_rules = [
 	{ name = "*.mkv", use = "watch"},
+	{ name = "*.mp4", use = "watch"},
 ]
