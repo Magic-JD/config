@@ -1,13 +1,21 @@
 #!/bin/bash
 
-if [[ -d "$1" ]]; then
-    eza -l --color=always -a --icons --git "$1"
-    exit 0
+# Remove all formating that we might prefer to otherwise have.
+CLEANED=$(echo $1 | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g" | tr -cd "[:print:]\n" | tr -d "[:blank:]")
+SEPERATOR="-----------------------------------------------------------------------------"
+
+if [[ -d "$CLEANED" ]]; then
+     echo "$SEPERATOR"
+     echo "Directory: $1"
+     echo "$SEPERATOR"
+     eza -l --color=always -a --icons --git "$CLEANED"
+     exit 0
 fi
 
-if [[ -f "$1" ]]; then
-    bat --color=always --style=header,grid --line-range :300 "$1"
-    exit 0
+if [[ -f "$CLEANED" ]]; then
+     bat --file-name="$1" --color=always --style=header,grid --line-range :300 "$CLEANED"
+     exit 0
 fi
 
 echo "$1"
+
