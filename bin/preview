@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Remove all formating that we might prefer to otherwise have.
-CLEANED=$(echo $1 | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g" | tr -cd "[:print:]\n" | tr -d "[:blank:]")
+CLEANED=$(echo $1 | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g" | tr -cd "[:print:]\n" | awk '{ print $NF }')
 SEPERATOR="-----------------------------------------------------------------------------"
 
 if [[ -d "$CLEANED" ]]; then
@@ -10,12 +10,10 @@ if [[ -d "$CLEANED" ]]; then
      echo "$SEPERATOR"
      eza -l --color=always -a --icons --git "$CLEANED"
      exit 0
-fi
-
-if [[ -f "$CLEANED" ]]; then
+ else
      bat --file-name="$1" --color=always --style=header,grid --line-range :300 "$CLEANED"
      exit 0
 fi
 
 echo "$1"
-
+echo "$CLEANED"
