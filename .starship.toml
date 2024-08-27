@@ -14,7 +14,8 @@ $git_status\
 $character"""
 
 # move the rest of the prompt to the right
-right_format = """$all"""
+right_format = """$cmd_duration\
+$all"""
 
 
 add_newline = false
@@ -255,7 +256,10 @@ stashed = ''
 format = "$all_status$ahead_behind"
 
 [cmd_duration]
-disabled = true
+min_time = 10_000
+format = '[$duration]($style)'
+show_notifications = false
+min_time_to_notify = 30_000
 
 [time]
 disabled = true
