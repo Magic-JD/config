@@ -30,26 +30,26 @@ map <leader>irr <Action>(RenameElement)
 map <leader>irs <Action>(ChangeSignature)
 
 " Navigation
-map gi <Action>(GotoImplementation)
 map <leader>fF <Action>(SearchEverywhere)
 map <leader>ff <Action>(GotoFile)
 map <leader>fr <Action>(RecentFiles)
 map <leader>rg <Action>(FindInPath)
 map <leader>- :NERDTreeToggle<CR>
 map <leader>q <action>(CloseContent)
-
+map <leader>z <Action>(MaximizeEditorInSplit)
 " Go to code
-nmap <leader>gd <Action>(GotoDeclaration)
-nmap <leader>gy <Action>(GotoTypeDeclaration)
-nmap <leader>gi <Action>(GotoImplementation)
-nmap <leader>gu <Action>(ShowUsages)
-nmap <leader>gt <Action>(GotoTest)
-nmap <leader>gf <Action>(Forward)
-nmap <leader>gb <Action>(Back)
-nmap <leader>ge <Action>(GotoNextError)
+nmap gd <Action>(GotoDeclaration)
+nmap gy <Action>(GotoTypeDeclaration)
+nmap gi <Action>(GotoImplementation)
+nmap gu <Action>(ShowUsages)
+nmap gt <Action>(GotoTest)
+nmap gf <Action>(Forward)
+nmap gb <Action>(Back)
+nmap ge <Action>(GotoNextError)
 
 " Vcs
 nmap <leader>vb <Action>(Annotate)
+nmap <leader>vc <Action>(Git.CompareWithBranch)
 
 " Debugging
 map <leader>idb <Action>(ToggleLineBreakpoint)
