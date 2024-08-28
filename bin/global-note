@@ -2,6 +2,10 @@
 
 mkdir -p ~/.global-note # Always add the default location
 
-LOC="${GLOBAL_NOTE_LOCATION:-~/.global-note}"
+LOC="${GLOBAL_NOTE_LOCATION:-$HOME/.global-note}"
 
-tmux popup -b rounded -h 40% -w 80% -x 20% -y 25% -E -T "Global Note" "$EDITOR $LOC/global-note.md && tmux popup -C"
+if [ $TMUX ]; then
+    tmux popup -b rounded -h 40% -w 80% -x 20% -y 25% -E -T "Global Note" "$EDITOR $LOC/global-note.md && tmux popup -C"
+else
+    $EDITOR "$LOC/global-note.md"
+fi;
