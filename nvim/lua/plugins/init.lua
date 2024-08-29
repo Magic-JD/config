@@ -117,6 +117,7 @@ return {
       {'onsails/lspkind.nvim'},
     }
 },
+  "xiyaowong/telescope-emoji.nvim",
 -- camel case
 { "chrisgrieser/nvim-spider", lazy = true },
 -- formatting
