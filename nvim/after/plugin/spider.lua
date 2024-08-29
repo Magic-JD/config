@@ -1,5 +1,9 @@
-require("spider")
+local spider = require("spider")
 
+spider.setup {
+    consistentOperatorPending = true,
+	skipInsignificantPunctuation = false,
+}
 vim.keymap.set(
 	{ "n", "o", "x" },
 	"w",
