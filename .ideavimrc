@@ -5,7 +5,7 @@
 source ~/.vimrc.vim
 
 set which-key
-set nerdtree
+set NERDTree
 
 " honor camel case for words
 map w [w
@@ -29,12 +29,14 @@ nmap <leader>is <action>(IdeaVim.ReloadVimRc.reload)<CR>
 map <leader>irr <Action>(RenameElement)
 map <leader>irs <Action>(ChangeSignature)
 
+" Nerd tree
+map <leader>- :NERDTreeToggle<CR>
+
 " Navigation
 map <leader>fF <Action>(SearchEverywhere)
 map <leader>ff <Action>(GotoFile)
 map <leader>fr <Action>(RecentFiles)
 map <leader>rg <Action>(FindInPath)
-map <leader>- :NERDTreeToggle<CR>
 map <leader>q <action>(CloseContent)
 map <leader>z <Action>(MaximizeEditorInSplit)
 map <leader>m <Action>(HideAllWindows)
