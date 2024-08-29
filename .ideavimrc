@@ -37,6 +37,7 @@ map <leader>rg <Action>(FindInPath)
 map <leader>- :NERDTreeToggle<CR>
 map <leader>q <action>(CloseContent)
 map <leader>z <Action>(MaximizeEditorInSplit)
+map <leader>m <Action>(HideAllWindows)
 " Go to code
 nmap gd <Action>(GotoDeclaration)
 nmap gy <Action>(GotoTypeDeclaration)
@@ -46,6 +47,10 @@ nmap gt <Action>(GotoTest)
 nmap gf <Action>(Forward)
 nmap gb <Action>(Back)
 nmap ge <Action>(GotoNextError)
+
+" Run things
+nmap <leader>r <Action>(RunClass)
+nmap <leader>c <Action>(Stop)
 
 " Vcs
 nmap <leader>vb <Action>(Annotate)
