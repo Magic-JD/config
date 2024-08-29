@@ -6,6 +6,7 @@ source ~/.vimrc.vim
 
 set which-key
 set NERDTree
+set ideajoin
 
 " honor camel case for words
 map w [w
@@ -26,8 +27,8 @@ Plug 'tpope/vim-surround'
 nmap <leader>is <action>(IdeaVim.ReloadVimRc.reload)<CR>
 
 " Refactoring
-map <leader>irr <Action>(RenameElement)
-map <leader>irs <Action>(ChangeSignature)
+map <leader>rr <Action>(RenameElement)
+map <leader>rs <Action>(ChangeSignature)
 
 " Nerd tree
 map <leader>- :NERDTreeToggle<CR>
@@ -36,10 +37,23 @@ map <leader>- :NERDTreeToggle<CR>
 map <leader>fF <Action>(SearchEverywhere)
 map <leader>ff <Action>(GotoFile)
 map <leader>fr <Action>(RecentFiles)
-map <leader>rg <Action>(FindInPath)
+map <leader>fg <Action>(FindInPath)
 map <leader>q <action>(CloseContent)
 map <leader>z <Action>(MaximizeEditorInSplit)
 map <leader>m <Action>(HideAllWindows)
+map [m <Action>(MethodUp)
+map ]m <Action>(MethodDown)
+
+" Proto text objects (thanks https://github.com/magidc/dotfiles)
+nnoremap vam j:action MethodUp<cr>0v]M
+nnoremap vim j:action MethodUp<cr>]m<cr>v]M<bs>
+nnoremap dam j:action MethodUp<cr>0v]M"_d
+nnoremap dim j:action MethodUp<cr>]m<cr>v]M<bs>"_d
+nnoremap yam j:action MethodUp<cr>0v]My
+nnoremap yim j:action MethodUp<cr>]m<cr>v]M<bs>y
+nnoremap cam j:action MethodUp<cr>0v]M"_c
+nnoremap cim j:action MethodUp<cr>]m<cr>v]M<bs>"_c
+
 " Go to code
 nmap gd <Action>(GotoDeclaration)
 nmap gy <Action>(GotoTypeDeclaration)
