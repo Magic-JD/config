@@ -4,7 +4,7 @@ alias ll='eza -l -a --icons --git'
 alias tree='eza --tree --icons'
 
 # Use zoxide to change directory
-alias cd='z'
+alias cd='cdls'
 
 # Neovim
 alias vi='vii'
