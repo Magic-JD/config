@@ -135,6 +135,8 @@ export NVM_DIR="$HOME/.nvm"
 export ATAC_MAIN_DIR="~/atac"
 export ATAC_KEY_BINDINGS="~/.config/atac/vimbind.toml"
 
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 eval "$(atuin init zsh)"
 eval "$(starship init zsh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

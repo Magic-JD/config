@@ -16,3 +16,6 @@ alias takeoff='export STARSHIP_CONFIG=~/.starship.toml'
 
 # Better top
 alias top='btop'
+
+# Bat coloring
+alias tail='battail'
