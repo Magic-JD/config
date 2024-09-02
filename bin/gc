@@ -5,7 +5,7 @@ git diff HEAD
 COMMIT_MESSAGE="$*"
 
 while [[ -z $COMMIT_MESSAGE ]]; do
-    echo "Enter a commit message: ";
+    echo "Enter a commit message or CTRL-C to cancel: ";
     read COMMIT_MESSAGE;
 done
 
