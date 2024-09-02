@@ -18,7 +18,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=93'
 
 
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#
+
+source ~/fzf-git.sh
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
