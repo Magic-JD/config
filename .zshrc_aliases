@@ -19,3 +19,6 @@ alias top='btop'
 
 # Bat coloring
 alias tail='battail'
+
+# Git
+alias fgc='_fzf_git_branches'
