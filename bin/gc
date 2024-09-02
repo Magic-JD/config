@@ -1,3 +1,12 @@
 #!/bin/bash
 
-git diff HEAD && git commit -a -m "$*"
+git diff HEAD
+
+COMMIT_MESSAGE="$*"
+
+while [[ -z $COMMIT_MESSAGE ]]; do
+    echo "Enter a commit message: ";
+    read COMMIT_MESSAGE;
+done
+
+git commit -a -m "$COMMIT_MESSAGE"

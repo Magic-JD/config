@@ -1,8 +1,8 @@
 [core]
-    pager = delta
+    pager = delta --paging=always
 
 [interactive]
-    diffFilter = delta --color-only
+    diffFilter = delta --color-only --paging=always
 
 [delta]
     navigate = true    # use n and N to move between diff sections
