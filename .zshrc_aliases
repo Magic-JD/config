@@ -21,4 +21,4 @@ alias top='btop'
 alias tail='battail'
 
 # Git
-alias fgc='_fzf_git_branches'
+alias fgc='git checkout $(_fzf_git_branches)'
