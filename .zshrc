@@ -8,7 +8,6 @@ export STARSHIP_CONFIG=~/.starship.toml
 if [ "$TERMINAL_EMULATOR" = "JetBrains-JediTerm" ]; then
     export STARSHIP_CONFIG=~/.starship-nano.toml
 fi;
-
 eval $(thefuck --alias)
 # Which plugins would you like to load?
 # Add wisely, as too many plugins slow down shell startup.                                                                                                                              

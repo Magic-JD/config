@@ -1,13 +1,15 @@
 #!/bin/bash
 
-export DELTA_FEATURES=+file-decoration-style=none
+DELTA_FEATURES=+file-decoration-style=none
 
 FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --exact --ansi --delimiter=':' --with-nth=3.. --preview 'bat --style=header,grid --color=always {1} --highlight-line {2}' --preview-window '~4,+{2}-3:top'"
 
-RG_QUERY="rg --line-number --with-filename --color=always --smart-case"
-INITIAL_QUERY=${@:-""}
-RG_RESULT=$($RG_QUERY "$INITIAL_QUERY" | fzf --query="$INITIAL_QUERY" --disabled --bind "change:reload:${RG_QUERY} {q}")
+INITIAL_QUERY=${1:-""}
+RG_ARGUMENTS=${@:2}
+RG_ARGUMENTS=${RG_ARGUMENTS:-""}
 
+RG_QUERY="rg --line-number --with-filename --color=always --smart-case $RG_ARGUMENTS"
+RG_RESULT=$($RG_QUERY "$INITIAL_QUERY" | fzf --query="$INITIAL_QUERY" --disabled --bind "change:reload:${RG_QUERY} {q}")
 FIRST_LINE=$(echo "$RG_RESULT" | awk 'NR==1 {print; exit}')
 OTHER_LINES=$(echo "$RG_RESULT" | awk 'NR>1')
 
@@ -18,4 +20,3 @@ if [[ -n $FIRST_LINE ]]; then
         $EDITOR $(echo "$FIRST_LINE" | awk -F: '{print "+"$2" "$1}')
     fi
 fi
-
