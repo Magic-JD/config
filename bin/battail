@@ -1,0 +1,3 @@
+#!/bin/bash
+
+tail -fn 10000 "$@" | bat --paging=never --style=plain -l log
