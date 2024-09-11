@@ -22,3 +22,6 @@ alias tail='battail'
 
 # Git
 alias fgc='git checkout $(_fzf_git_branches)'
+
+# Fuck
+alias f='fuck'
