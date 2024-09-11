@@ -89,6 +89,7 @@ export EDITOR='nvim'
 export BAT_THEME="Catppuccin Mocha"
 export FZF_DEFAULT_OPTS="--tmux 90% -m --bind 'change:top,tab:toggle-up,btab:toggle-all' --color --ansi"
 export FZF_DEFAULT_COMMAND="fd -t f -c always"
+export EZA_CONFIG_DIR="$HOME/.config/eza"
 
 eval "$(zoxide init zsh)"
 

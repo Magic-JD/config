@@ -1,0 +1,37 @@
+filenames:
+  .:
+    filename:
+      is_dimmed: true
+    icon:
+      style:
+        is_dimmed: true
+
+extensions:
+  css:
+    filename:
+      foreground: 99
+      is_bold: true
+    icon:
+      style:
+        foreground: 99
+  js:
+    filename:
+      foreground: Yellow
+      is_bold: true
+    icon:
+      style:
+        foreground: Yellow
+  lua:
+    filename:
+      foreground: Cyan
+      is_bold: true
+    icon:
+      style:
+        foreground: Cyan
+  java:
+    filename:
+      foreground: Red
+      is_bold: true
+    icon:
+      style:
+        foreground: Red
