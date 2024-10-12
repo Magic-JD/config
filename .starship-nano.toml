@@ -10,6 +10,9 @@ add_newline = false
 [line_break]
 disabled = true
 
+[character]
+vimcmd_symbol = '[󰕷](bold green)'
+
 [directory]
 truncation_length = 3
 truncate_to_repo = true

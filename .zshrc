@@ -14,7 +14,8 @@ eval $(thefuck --alias)
 # -> this is from oh my zsh might want to add fzf plugin back at some point plugins=(fzf)                                                                                                                                                                           
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=93'
-
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_USER_DEFAULT # Set the cursor to be block in insert mode
 
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
