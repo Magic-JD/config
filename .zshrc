@@ -16,6 +16,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=93'
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_USER_DEFAULT # Set the cursor to be block in insert mode
+ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
