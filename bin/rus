@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rustfmt $1.rs && rustc $1.rs && ./$1

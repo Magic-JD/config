@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Define the API endpoint and request parameters
+URL="https://libretranslate.com/translate"
+DATA=$(cat <<EOF
+{
+  "q": "test that translate is working",
+  "source": "auto",
+  "target": "id",
+  "format": "text",
+  "alternatives": 3,
+  "api_key": ""
+}
+EOF
+)
+
+# Make the POST request using curl
+response=$(curl -s -X POST "$URL" \
+  -H "Content-Type: application/json" \
+  -d "$DATA")
+
+# Print the response
+echo "$response"

@@ -14,10 +14,6 @@ eval $(thefuck --alias)
 # -> this is from oh my zsh might want to add fzf plugin back at some point plugins=(fzf)                                                                                                                                                                           
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=93'
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_USER_DEFAULT # Set the cursor to be block in insert mode
-ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source ~/fzf-git.sh
@@ -146,6 +142,10 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 eval "$(atuin init zsh)"
 eval "$(starship init zsh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_USER_DEFAULT # Set the cursor to be block in insert mode
+ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
