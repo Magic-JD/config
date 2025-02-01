@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if command -v mvn &> /dev/null; then
+    if ! mvn test; then
+        echo "Maven tests failed. Aborting git push."
+        exit 1
+    fi
+elif command -v gradle &> /dev/null; then
+    if ! gradle test; then
+        echo "Gradle tests failed. Aborting git push."
+        exit 1
+    fi
+fi
+
+git push
