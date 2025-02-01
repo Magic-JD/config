@@ -3,15 +3,15 @@
 GIT_ROOT=$(git rev-parse --show-toplevel)
 
 if [ -f "$GIT_ROOT/pom.xml" ] && command -v mvn &> /dev/null; then
-    if ! mvn test; then
+    (cd "$GIT_ROOT" && mvn test) || {
         echo "Maven tests failed. Aborting git push."
         exit 1
-    fi
+    }
 elif [ -f "$GIT_ROOT/build.gradle" ] && command -v gradle &> /dev/null; then
-    if ! gradle test; then
+    (cd "$GIT_ROOT" && gradle test) || {
         echo "Gradle tests failed. Aborting git push."
         exit 1
-    fi
+    }
 fi
 
 git push
