@@ -1,0 +1,18 @@
+#!/bin/bash
+
+response=$(curl -s -X POST "https://api.openai.com/v1/chat/completions" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $API_KEY" \
+  -d '{
+    "model": "gpt-4-turbo",
+    "messages": [{"role": "system", "content": "You are a Linux terminal expert. Respond with only the Linux command needed. Do not format the request in any way, just return the command as plain text."},
+                 {"role": "user", "content": "'"$1"'"}],
+    "temperature": 0
+  }')
+
+# Extract command from response
+command=$(echo "$response" | jq -r '.choices[0].message.content')
+
+# Display the command
+echo "$command"
+
