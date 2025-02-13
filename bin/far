@@ -1,0 +1,15 @@
+#!/bin/bash
+
+DELTA_FEATURES=+file-decoration-style=none
+
+INITIAL_QUERY=$1
+REPLACE=$2
+
+FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --exact --ansi --delimiter=':' --with-nth=3.. --preview 'sed {2}s/$INITIAL_QUERY/$REPLACE/g {1} | bat --file-name={1} --style=header,grid --color=always --highlight-line {2}' --preview-window '~4,+{2}-3:top'"
+
+
+RG_QUERY="rg --line-number --with-filename --color=always --smart-case"
+RG_RESULT=$($RG_QUERY "$INITIAL_QUERY" | fzf --query="$INITIAL_QUERY" --disabled \
+    --no-input \
+    --bind "enter:execute(sed -i '{2}s/$INITIAL_QUERY/$REPLACE/g' {1})+reload:${RG_QUERY} {q}" \
+    --bind "change:reload:${RG_QUERY} {q}")
