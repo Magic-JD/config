@@ -5,6 +5,13 @@ filenames:
     icon:
       style:
         is_dimmed: true
+  Dockerfile:
+    filename:
+      foreground: Cyan
+      is_bold: true
+    icon:
+      style:
+        foreground: Cyan
 
 extensions:
   css:
