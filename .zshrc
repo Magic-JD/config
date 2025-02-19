@@ -91,7 +91,7 @@ export FZF_DEFAULT_OPTS="--tmux 90% -m --bind 'change:top,tab:toggle-up,btab:tog
     --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
     --color=selected-bg:#45475a \
     --multi"
-    export FZF_DEFAULT_COMMAND="fd -t f -c always"
+export FZF_DEFAULT_COMMAND="fd -t f -c always"
 export EZA_CONFIG_DIR="$HOME/.config/eza"
 
 eval "$(zoxide init zsh)"
