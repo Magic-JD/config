@@ -1,7 +1,7 @@
 git: 
     paging:
         colorArg: always
-        pager: delta --dark --paging=never --syntax-theme base16-256 -s
+        pager: delta --paging=never
 
 gui:
  theme:
