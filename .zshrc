@@ -85,8 +85,13 @@ export EDITOR='nvim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export BAT_THEME="Catppuccin Mocha"
-export FZF_DEFAULT_OPTS="--tmux 90% -m --bind 'change:top,tab:toggle-up,btab:toggle-all' --color --ansi"
-export FZF_DEFAULT_COMMAND="fd -t f -c always"
+export FZF_DEFAULT_OPTS="--tmux 90% -m --bind 'change:top,tab:toggle-up,btab:toggle-all' --color --ansi \
+    --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+    --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+    --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+    --color=selected-bg:#45475a \
+    --multi"
+    export FZF_DEFAULT_COMMAND="fd -t f -c always"
 export EZA_CONFIG_DIR="$HOME/.config/eza"
 
 eval "$(zoxide init zsh)"
