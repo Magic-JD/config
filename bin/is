@@ -9,6 +9,8 @@ TITLE=$(echo $JSON | jq '.[0].title')
 
 HTML=$(curl -s GET "$URL" -A "Mozilla/5.0 (compatible;  MSIE 7.01; Windows NT 5.0)")
 
+HTML=$(echo $HTML | sed 's//<br>/g')
+
 if [[ $URL =~ "en.wikipedia.org" ]]; then
     HTML=$(echo $HTML | htmlq 'p')
 fi
