@@ -1,0 +1,44 @@
+#!/bin/bash
+
+options=$(getopt -l "wiki" -o "w" -a -- "$@")
+eval set -- "$options"
+
+WIKI=false
+
+while true
+do
+    case "$1" in
+        -w|--wiki) 
+            WIKI=true
+            ;;
+        --)
+            shift
+            break;;
+    esac
+    shift
+done
+
+SEARCH=$@
+
+if $WIKI ; then
+    JSON=$(ddgr --site en.wikipedia.org $SEARCH --json)
+else
+    JSON=$(ddgr $SEARCH --json)
+fi
+
+URL=$(echo $JSON | jq -r '.[0].url')
+TITLE=$(echo $JSON | jq '.[0].title')
+
+HTML=$(curl -s GET "$URL" -A "Mozilla/5.0 (compatible;  MSIE 7.01; Windows NT 5.0)")
+
+echo $HTML > test.html
+
+if [[ $URL =~ "en.wikipedia.org" ]]; then
+    HTML=$(echo $HTML | htmlq 'p')
+fi
+
+if [[ $URL =~ "www.baeldung.com" ]]; then
+    HTML=$(echo $HTML | htmlq '.post-content')
+fi
+
+echo $HTML | pandoc -f html -t ansi | bat -p 
