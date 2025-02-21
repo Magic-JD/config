@@ -17,4 +17,20 @@ if [[ $URL =~ "www.baeldung.com" ]]; then
     HTML=$(echo $HTML | htmlq '.post-content')
 fi
 
-echo $HTML | pandoc -f html -t ansi | bat -p 
+if [[ $URL =~ "www.w3schools.com" ]]; then
+    HTML=$(echo $HTML | htmlq '#main')
+fi
+
+if [[ $URL =~ "linuxhandbook.com" ]]; then
+    HTML=$(echo $HTML | htmlq 'article')
+fi
+
+if [[ $URL =~ "stackoverflow.com" ]]; then
+    HTML=$(echo $HTML | htmlq '.js-post-body, .user-details, .comment-body')
+fi
+
+if [[ $URL =~ "github.com" ]]; then
+    HTML=$(echo $HTML | htmlq '.markdown-body')
+fi
+
+echo $HTML | pandoc -f html -t ansi | bat --file-name "$TITLE ($URL)" --style 'header,grid'
