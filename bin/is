@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for cmd in ddgr jq htmlq pandoc bat curl; do
+for cmd in tput ddgr jq htmlq pandoc bat curl; do
     command -v "$cmd" &>/dev/null || { echo "Error: $cmd not found. Install it first."; exit 1; }
 done
 
@@ -40,8 +40,10 @@ extract_content() {
 
 HTML=$(extract_content "$URL" "$HTML")
 
+COLS=$(tput cols)
+
 if [[ -n "$HTML" ]]; then
-    pandoc -f html -t ansi <<< "$HTML" | bat --file-name "$TITLE ($URL)" --style 'header,grid'
+    pandoc -f html -t ansi --columns $(($COLS - 5)) <<< "$HTML" | bat --file-name "$TITLE ($URL)" --style 'header'
 else
     echo "Error: No content extracted from $URL"
     exit 1
