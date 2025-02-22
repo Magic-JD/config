@@ -5,7 +5,7 @@ for cmd in tput ddgr jq htmlq pandoc bat curl; do
 done
 
 SEARCH="$*"
-JSON=$(ddgr "$SEARCH" --json 2>/dev/null)
+JSON=$(ddgr "$SEARCH" -n 1 --json 2>/dev/null)
 
 if [[ -z "$JSON" || "$JSON" == "[]" ]]; then
     echo "Error: No search results found."
