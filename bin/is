@@ -1,38 +1,48 @@
 #!/bin/bash
 
-SEARCH=$*
+for cmd in ddgr jq htmlq pandoc bat curl; do
+    command -v "$cmd" &>/dev/null || { echo "Error: $cmd not found. Install it first."; exit 1; }
+done
 
-JSON=$(ddgr "$SEARCH" --json)
+SEARCH="$*"
+JSON=$(ddgr "$SEARCH" --json 2>/dev/null)
 
-URL=$(echo $JSON | jq -r '.[0].url')
-TITLE=$(echo $JSON | jq '.[0].title')
-
-HTML=$(curl -s GET "$URL" -A "Mozilla/5.0 (compatible;  MSIE 7.01; Windows NT 5.0)")
-
-HTML=$(echo $HTML | sed 's//<br>/g')
-
-if [[ $URL =~ "en.wikipedia.org" ]]; then
-    HTML=$(echo $HTML | htmlq 'p')
+if [[ -z "$JSON" || "$JSON" == "[]" ]]; then
+    echo "Error: No search results found."
+    exit 1
 fi
 
-if [[ $URL =~ "www.baeldung.com" ]]; then
-    HTML=$(echo $HTML | htmlq '.post-content')
+URL=$(jq -r '.[0].url' <<< "$JSON")
+TITLE=$(jq -r '.[0].title' <<< "$JSON")
+
+HTML=$(curl -sL -A "Mozilla/5.0 (compatible; MSIE 7.01; Windows NT 5.0)" "$URL")
+
+if [[ -z "$HTML" ]]; then
+    echo "Error: Failed to fetch content from $URL"
+    exit 1
 fi
 
-if [[ $URL =~ "www.w3schools.com" ]]; then
-    HTML=$(echo $HTML | htmlq '#main')
-fi
+extract_content() {
+    local url="$1"
+    local html="$2"
 
-if [[ $URL =~ "linuxhandbook.com" ]]; then
-    HTML=$(echo $HTML | htmlq 'article')
-fi
+    case "$url" in
+        *en.wikipedia.org*) html=$(htmlq 'p' <<< "$html") ;;
+        *www.baeldung.com*) html=$(htmlq '.post-content' <<< "$html") ;;
+        *www.w3schools.com*) html=$(htmlq '#main' <<< "$html") ;;
+        *linuxhandbook.com*) html=$(htmlq 'article' <<< "$html") ;;
+        *stackoverflow.com*) html=$(htmlq '.js-post-body, .user-details, .comment-body' <<< "$html") ;;
+        *github.com*) html=$(htmlq '.markdown-body' <<< "$html") ;;
+    esac
 
-if [[ $URL =~ "stackoverflow.com" ]]; then
-    HTML=$(echo $HTML | htmlq '.js-post-body, .user-details, .comment-body')
-fi
+    echo "$html"
+}
 
-if [[ $URL =~ "github.com" ]]; then
-    HTML=$(echo $HTML | htmlq '.markdown-body')
-fi
+HTML=$(extract_content "$URL" "$HTML")
 
-echo $HTML | pandoc -f html -t ansi | bat --file-name "$TITLE ($URL)" --style 'header,grid'
+if [[ -n "$HTML" ]]; then
+    pandoc -f html -t ansi <<< "$HTML" | bat --file-name "$TITLE ($URL)" --style 'header,grid'
+else
+    echo "Error: No content extracted from $URL"
+    exit 1
+fi
