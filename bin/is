@@ -27,6 +27,7 @@ case "$URL" in
     *www.baeldung.com*) HTML=$(htmlq '.post-content' <<< "$HTML") ;;
     *www.w3schools.com*) HTML=$(htmlq '#main' <<< "$HTML") ;;
     *linuxhandbook.com*) HTML=$(htmlq 'article' <<< "$HTML") ;;
+    *docs.spring.io*) HTML=$(htmlq 'article' <<< "$HTML") ;;
     *stackoverflow.com*) HTML=$(htmlq '.js-post-body, .user-details, .comment-body' <<< "$HTML") ;;
     *github.com*) HTML=$(htmlq '.markdown-body' <<< "$HTML") ;;
 esac
