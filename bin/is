@@ -22,23 +22,14 @@ if [[ -z "$HTML" ]]; then
     exit 1
 fi
 
-extract_content() {
-    local url="$1"
-    local html="$2"
-
-    case "$url" in
-        *en.wikipedia.org*) html=$(htmlq 'p' <<< "$html") ;;
-        *www.baeldung.com*) html=$(htmlq '.post-content' <<< "$html") ;;
-        *www.w3schools.com*) html=$(htmlq '#main' <<< "$html") ;;
-        *linuxhandbook.com*) html=$(htmlq 'article' <<< "$html") ;;
-        *stackoverflow.com*) html=$(htmlq '.js-post-body, .user-details, .comment-body' <<< "$html") ;;
-        *github.com*) html=$(htmlq '.markdown-body' <<< "$html") ;;
-    esac
-
-    echo "$html"
-}
-
-HTML=$(extract_content "$URL" "$HTML")
+case "$URL" in
+    *en.wikipedia.org*) HTML=$(htmlq 'p' <<< "$HTML") ;;
+    *www.baeldung.com*) HTML=$(htmlq '.post-content' <<< "$HTML") ;;
+    *www.w3schools.com*) HTML=$(htmlq '#main' <<< "$HTML") ;;
+    *linuxhandbook.com*) HTML=$(htmlq 'article' <<< "$HTML") ;;
+    *stackoverflow.com*) HTML=$(htmlq '.js-post-body, .user-details, .comment-body' <<< "$HTML") ;;
+    *github.com*) HTML=$(htmlq '.markdown-body' <<< "$HTML") ;;
+esac
 
 COLS=$(tput cols)
 
