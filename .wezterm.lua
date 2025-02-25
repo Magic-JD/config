@@ -5,7 +5,7 @@ local mux = wezterm.mux
 -- Start maximized
 wezterm.on("gui-startup", function()
   local tab, pane, window = mux.spawn_window{}
-  window:gui_window():maximize()
+  window:gui_window():toggle_fullscreen()
 end)
 
 -- This will hold the configuration.
