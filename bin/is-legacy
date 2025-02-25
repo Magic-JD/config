@@ -1,0 +1,42 @@
+#!/bin/bash
+
+for cmd in tput ddgr jq htmlq pandoc bat curl; do
+    command -v "$cmd" &>/dev/null || { echo "Error: $cmd not found. Install it first."; exit 1; }
+done
+
+SEARCH="$*"
+JSON=$(ddgr "$SEARCH" -n 1 --json 2>/dev/null)
+
+if [[ -z "$JSON" || "$JSON" == "[]" ]]; then
+    echo "Error: No search results found."
+    exit 1
+fi
+
+URL=$(jq -r '.[0].url' <<< "$JSON")
+TITLE=$(jq -r '.[0].title' <<< "$JSON")
+
+HTML=$(curl -sL -A "Mozilla/5.0 (compatible; MSIE 7.01; Windows NT 5.0)" "$URL")
+
+if [[ -z "$HTML" ]]; then
+    echo "Error: Failed to fetch content from $URL"
+    exit 1
+fi
+
+case "$URL" in
+    *en.wikipedia.org*) HTML=$(htmlq 'p' <<< "$HTML") ;;
+    *www.baeldung.com*) HTML=$(htmlq '.post-content' <<< "$HTML") ;;
+    *www.w3schools.com*) HTML=$(htmlq '#main' <<< "$HTML") ;;
+    *linuxhandbook.com*) HTML=$(htmlq 'article' <<< "$HTML") ;;
+    *docs.spring.io*) HTML=$(htmlq 'article' <<< "$HTML") ;;
+    *stackoverflow.com*) HTML=$(htmlq '.js-post-body, .user-details, .comment-body' <<< "$HTML") ;;
+    *github.com*) HTML=$(htmlq '.markdown-body' <<< "$HTML") ;;
+esac
+
+COLS=$(tput cols)
+
+if [[ -n "$HTML" ]]; then
+    pandoc -f html -t ansi --columns $(($COLS - 5)) <<< "$HTML" | bat --file-name "$TITLE ($URL)" --style 'header'
+else
+    echo "Error: No content extracted from $URL"
+    exit 1
+fi
