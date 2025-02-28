@@ -1,0 +1,94 @@
+[styles.h1]
+bold = true
+
+[styles.h2]
+bold = true
+
+[styles.h3]
+bold = true
+
+[styles.a]
+fg = "Cyan"
+
+[styles.img]
+fg = "Red"
+bold=true
+
+[styles.em]
+italic = true
+
+[styles.i]
+italic = true
+
+[styles.strong]
+bold = true
+
+[styles.b]
+bold = true
+
+[styles.blockquote]
+fg = "Gray"
+italic = true
+
+[styles.del]
+crossed_out = true
+
+[styles.ins]
+underlined = true
+
+[styles.mark]
+fg = "Black"
+bg = "Yellow"
+
+[styles.small]
+fg = "Gray"
+
+[styles.sub]
+fg = "Gray"
+dim = true
+
+[styles.sup]
+fg = "Gray"
+dim = true
+
+[styles.kbd]
+fg = "White"
+bg = "DarkGray"
+
+[styles.var]
+fg = "Red"
+italics = true
+
+[styles.samp]
+fg = "Magenta"
+
+[styles.u]
+underlined = true
+
+[styles.li]
+bold = true
+
+[styles.dt]
+bold = true
+
+[styles.dd]
+fg = "Gray"
+
+[selectors]
+"en.wikipedia.org" = "p"
+"www.baeldung.com" = ".post-content"
+"www.w3schools.com" = "#main"
+"linuxhandbook.com" = "article"
+"docs.spring.io" = "article"
+"stackoverflow.com" = ".js-post-body, .user-details, .comment-body"
+"github.com" = ".markdown-body"
+"apnews.com" = ".RichTextStoryBody"
+"geeksforgeeks.org" = ".text"
+
+[format]
+ignored_tags = ["script", "style", "noscript", "head", "title", "meta", "input", "button", "svg", "nav", "footer", "header", "aside"]
+block_elements = ["p", "div", "table", "article", "img", "section", "pre", "blockquote", "ul", "ol", "dl", "dt", "dd", "li", "h1", "h2", "h3", "h4", "h5", "h6"]
+
+[syntax]
+default_language = "java"
+theme = "base16-ocean.dark"
