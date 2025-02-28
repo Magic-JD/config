@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo $1 | websocat -1 wss://stock-tracker-production-f38f.up.railway.app/stocks
