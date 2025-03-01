@@ -25,3 +25,6 @@ alias fgc='git checkout $(_fzf_git_branches)'
 
 # Fuck
 alias f='fuck'
+
+# Is fast
+alias is='is-fast'
