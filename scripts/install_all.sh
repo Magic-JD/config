@@ -30,7 +30,8 @@ brew install bat \
     uv \
     htmlq \
     pandoc \
-    ddgr;
+    ddgr \
+    magic-jd/tap/is-fast;
 
 uv tool install --python 3.12 posting;
 
