@@ -1,14 +1,14 @@
 # Styles for each element
 # Example:
-#[styles.example]
-#fg = "Blue"        # Sets the foreground (text) color
-#bg = "#D3D3D3"     # Sets the background color using a hex code (Light Gray)
-#bg = "rgb(0, 0, 0)" would also be a valud option.
-#bold = true        # Makes text bold
-#italic = true      # Makes text italic
-#underlined = true  # Underlines the text
-#crossed_out = true # Strikes through the text
-#dim = true         # Makes text dimmer
+# [styles.example]
+# fg = "Blue"           # Sets the foreground (text) color
+# bg = "#D3D3D3"        # Sets the background color using a hex code (Light Gray)
+# bg = "rgb(0, 0, 0)"   # would also be a valud option.
+# bold = true           # Makes text bold
+# italic = true         # Makes text italic
+# underlined = true     # Underlines the text
+# crossed_out = true    # Strikes through the text
+# dim = true            # Makes text dimmer
 
 [styles.h1]
 bold = true
@@ -69,7 +69,7 @@ bg = "DarkGray"
 
 [styles.var]
 fg = "Red"
-italics = true
+italic = true
 
 [styles.samp]
 fg = "Magenta"
@@ -112,15 +112,14 @@ block_elements = ["p", "div", "table", "article", "img", "section", "pre", "bloc
 [syntax]
 # This is the language that will be used for syntax highlighting if it cannot be deduced from the CSS of the page.
 default_language = "rust"
-
 # Valid themes
-#InspiredGitHub
-#Solarized (dark)
-#Solarized (light)
-#base16-eighties.dark
-#base16-mocha.dark
-#base16-ocean.dark
-#base16-ocean.light
+# InspiredGitHub
+# Solarized (dark)
+# Solarized (light)
+# base16-eighties.dark
+# base16-mocha.dark
+# base16-ocean.dark
+# base16-ocean.light
 theme = "base16-ocean.dark"
 
 
@@ -143,7 +142,32 @@ time_color = "#f2cdcd"
 text_color = "#74c7ec"
 # Sets the type of search - valid options Fuzzy | Substring | Exact.
 # Defaults to fuzzy.
-search_type = "substring"
+search_type = "fuzzy"
 
+# Search settings.
 [search]
+# Available options:
+# - "duckduckgo" (default) - Uses DuckDuckGo for searches.
+# - "google" - Uses Google Custom Search (requires API setup).
+# - "kagi" - Uses Kagi Search (requires API setup)
+#
+# If using Google Search, you must configure the API:
+# 1. Enable the Google Custom Search API in the Google Cloud Console.
+# 2. Generate an API Key.
+# 3. Create a Custom Search Engine and obtain its Search Engine ID.
+# 4. Set the following environment variables:
+#    export IS_FAST_GOOGLE_API_KEY="your_api_key_here"
+#    export IS_FAST_GOOGLE_SEARCH_ENGINE_ID="your_search_engine_id_here"
+#
+# If using Kagi search you must configure the api: https://help.kagi.com/kagi/api/search.html
+# 1. Obtain access to the API (Currently in closed Beta)
+# 2. Generate an API key.
+# 3. Set the following environment variable:
+#   export IS_FAST_KAGI_API_KEY
+#
+# To add a custom search engine, fork the repository and follow the
+# instructions in src/search/search_type.rs.
 engine = "duckduckgo"
+
+[misc]
+# open_tool = "w3m" # Uses system open as default, only uncomment if you want to override this behaviour
