@@ -1,0 +1,4 @@
+#!/bin/bash
+
+is-fast -d "en.wikipedia.org/wiki/${*}"  -s "div.mw-content-ltr > p:nth-of-type(-n+2)" --color=always | /home/linuxbrew/.linuxbrew/Cellar/perl/5.40.0/bin/ansifold -s -w 150 | bat --decorations=never
+

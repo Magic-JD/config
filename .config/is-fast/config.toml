@@ -129,6 +129,8 @@ theme = "base16-ocean.dark"
 border_color = "#89b4fa"
 # A percentage of the page width to be applied on either side
 page_margin = 10
+scroll = "half"
+color_mode = "tui"
 
 # Setting for the history page
 [history]
@@ -143,6 +145,7 @@ text_color = "#74c7ec"
 # Sets the type of search - valid options Fuzzy | Substring | Exact.
 # Defaults to fuzzy.
 search_type = "fuzzy"
+enabled = true
 
 # Search settings.
 [search]
@@ -168,6 +171,9 @@ search_type = "fuzzy"
 # To add a custom search engine, fork the repository and follow the
 # instructions in src/search/search_type.rs.
 engine = "duckduckgo"
+# Uncommnt to restrict search results to only the given domain. Only compatable with duckduckgo search.
+# Can be overriden with the --site flag.
+# site = "en.wikipedia.org"
 
 [misc]
-# open_tool = "w3m" # Uses system open as default, only uncomment if you want to override this behaviour
+# open_tool = "firefox" # Uses system open as default, only uncomment if you want to override this behaviour
