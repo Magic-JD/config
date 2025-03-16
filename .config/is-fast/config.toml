@@ -86,27 +86,12 @@ bold = true
 [styles.dd]
 fg = "Gray"
 
-# This determines which part of the page will be selected. No good one for a site you use? Add your own, and make a pull
-# request @https://github.com/Magic-JD/is-fast.
-[selectors]
-"*en.wikipedia.org*" = "div.mw-content-ltr > *:not(table, figure, div.hatnote)"
-"*www.baeldung.com*" = ".post-content"
-"*www.w3schools.com*" = "#main"
-"*linuxhandbook.com*" = "article"
-"*docs.spring.io*" = "article"
-"*stackoverflow.com*" = ".js-post-body, .user-details, .comment-body"
-"*github.com/*/blob/*" = ".react-code-line-contents"
-"*github.com/*/issues/*" = "main"
-"*github.com*" = ".markdown-body"
-"*apnews.com*" = ".RichTextStoryBody"
-"*geeksforgeeks.org*" = ".text"
-"*programiz.com*" = ".editor-contents"
 
 [format]
 # All elements from this list are ignored.
 ignored_tags = ["script", "style", "noscript", "head", "title", "meta", "input", "button", "svg", "nav", "footer", "header", "aside"]
 # Adding an element to this list will ensure that every instance of that element sits on its own line.
-block_elements = ["p", "div", "table", "article", "img", "section", "pre", "blockquote", "ul", "ol", "dl", "dt", "dd", "li", "h1", "h2", "h3", "h4", "h5", "h6"]
+block_elements = ["p", "tr", "div", "table", "article", "img", "section", "pre", "blockquote", "ul", "ol", "dl", "dt", "dd", "li", "h1", "h2", "h3", "h4", "h5", "h6"]
 
 # Section relating to syntax highlighting.
 [syntax]
@@ -174,6 +159,19 @@ engine = "duckduckgo"
 # Uncommnt to restrict search results to only the given domain. Only compatable with duckduckgo search.
 # Can be overriden with the --site flag.
 # site = "en.wikipedia.org"
+
+# Caching stores the raw html that is called associated with the url. When enabled it provides results you have seen
+# before much faster. It is especially useful for scripts where you might want to select a number of different elements
+# from the same page by repeatedly calling is fast on that page with different selectors.
+[cache]
+# The mode to use for caching. Caching is disabled by default. Options are disabled, read, write, and readwrite.
+cache_mode = "readwrite"
+# Max size of the cache if it is used. During tests, it took around 2MB per 100 entries, but will vary with page size.
+max_size = 100
+# How long the cached value should be valid in seconds. NOTE: the cached data is stored with the TTL being added to the
+# cached time. This means that if you change this to a longer value then change it back again the longer lived data might
+# persist. If you want to remove that data you should use the --clear-cache flag.
+ttl = 30000
 
 [misc]
 # open_tool = "firefox" # Uses system open as default, only uncomment if you want to override this behaviour

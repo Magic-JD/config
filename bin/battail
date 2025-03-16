@@ -1,4 +1,4 @@
 #!/bin/bash
-fzf --tail 10000 --tac --no-sort --exact --no-tmux --wrap < <(tail -fn 10000 "$@" | bat --paging=never --style=plain --color=always -l log)
+fzf --tail 10000000 --tac --no-sort --exact --no-tmux --wrap < <(tail -fn 1000000 "$@" | bat --paging=never --style=plain --color=always -l log)
 # We will close the pipe but that is expected
 exit 0
