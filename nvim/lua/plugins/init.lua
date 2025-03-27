@@ -158,11 +158,17 @@ return {
     "rcarriga/nvim-notify",
     "hrsh7th/nvim-cmp",
     }
-}
+
+},
+-- Rust lsp ++
+{
+  'mrcjkb/rustaceanvim',
+  version = '^5', -- Recommended
+  lazy = false, -- This plugin is already lazy
+},
 
   -- Personal
-  --{
-    --dir = '/home/joe/LuaProjects/NoisyVim.nvim',
-    --name = 'noisy',
-  --},
+  {
+      'magic-jd/is-fast.nvim'
+  },
 }

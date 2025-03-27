@@ -89,9 +89,9 @@ fg = "Gray"
 
 [format]
 # All elements from this list are ignored.
-ignored_tags = ["script", "style", "noscript", "head", "title", "meta", "input", "button", "svg", "nav", "footer", "header", "aside"]
+# ignored_tags = ["script", "style", "noscript", "head", "title", "meta", "input", "button", "svg", "nav", "footer", "header", "aside"]
 # Adding an element to this list will ensure that every instance of that element sits on its own line.
-block_elements = ["p", "tr", "div", "table", "article", "img", "section", "pre", "blockquote", "ul", "ol", "dl", "dt", "dd", "li", "h1", "h2", "h3", "h4", "h5", "h6"]
+# block_elements = ["p", "tr", "div", "table", "article", "img", "section", "pre", "blockquote", "ul", "ol", "dl", "dt", "dd", "li", "h1", "h2", "h3", "h4", "h5", "h6"]
 
 # Section relating to syntax highlighting.
 [syntax]
