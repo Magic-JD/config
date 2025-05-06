@@ -52,5 +52,29 @@ config.window_padding = {
 config.cursor_blink_rate = 0
 config.hide_tab_bar_if_only_one_tab = true
 
+config.enable_kitty_keyboard = true
+config.enable_kitty_graphics = true
+
+-- background transparency
+config.window_background_opacity = 1.0
+local opacities = {1.0, 0.8, 0.0}
+local idx = 1
+
+-- toggle function
+wezterm.on("toggle-opacity", function(window, pane)
+    idx = idx + 1
+    if idx > 3 then idx = idx - 3 end
+    local overrides = window:get_config_overrides() or {}
+    overrides.window_background_opacity = opacities[idx]
+    window:set_config_overrides(overrides)
+end)
+
+config.keys = {
+    {
+        key = "o",
+        mods = "CTRL",
+        action = wezterm.action.EmitEvent("toggle-opacity"),
+    },
+}
 -- and finally, return the configuration to wezterm
 return config
