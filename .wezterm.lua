@@ -57,13 +57,13 @@ config.enable_kitty_graphics = true
 
 -- background transparency
 config.window_background_opacity = 1.0
-local opacities = {1.0, 0.8, 0.0}
+local opacities = {1.0, 0.9, 0.8, 0.7, 0.0}
 local idx = 1
 
 -- toggle function
 wezterm.on("toggle-opacity", function(window, pane)
     idx = idx + 1
-    if idx > 3 then idx = idx - 3 end
+    if idx > #opacities then idx = idx - #opacities end
     local overrides = window:get_config_overrides() or {}
     overrides.window_background_opacity = opacities[idx]
     window:set_config_overrides(overrides)
