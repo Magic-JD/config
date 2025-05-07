@@ -56,9 +56,9 @@ config.enable_kitty_keyboard = true
 config.enable_kitty_graphics = true
 
 -- background transparency
-config.window_background_opacity = 1.0
 local opacities = {1.0, 0.9, 0.8, 0.7, 0.0}
-local idx = 1
+local idx = 3
+config.window_background_opacity = opacities[idx]
 
 -- toggle function
 wezterm.on("toggle-opacity", function(window, pane)
