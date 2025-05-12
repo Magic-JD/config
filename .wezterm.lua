@@ -51,13 +51,14 @@ config.window_padding = {
 }
 config.cursor_blink_rate = 0
 config.hide_tab_bar_if_only_one_tab = true
+config.warn_about_missing_glyphs=false
 
 config.enable_kitty_keyboard = true
 config.enable_kitty_graphics = true
 
 -- background transparency
 local opacities = {1.0, 0.9, 0.8, 0.7, 0.0}
-local idx = 3
+local idx = 4
 config.window_background_opacity = opacities[idx]
 
 -- toggle function
