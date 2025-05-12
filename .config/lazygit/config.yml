@@ -3,11 +3,6 @@ git:
         colorArg: always
         pager: delta --paging=never
 
-status:
-  branch: true
-  showStash: true
-  showUntrackedFiles: all
-
 gui:
  theme:
    activeBorderColor:
