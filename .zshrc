@@ -8,10 +8,7 @@ export STARSHIP_CONFIG=~/.starship.toml
 if [ "$TERMINAL_EMULATOR" = "JetBrains-JediTerm" ]; then
     export STARSHIP_CONFIG=~/.starship-nano.toml
 fi;
-eval $(thefuck --alias)
-# Which plugins would you like to load?
-# Add wisely, as too many plugins slow down shell startup.                                                                                                                              
-# -> this is from oh my zsh might want to add fzf plugin back at some point plugins=(fzf)                                                                                                                                                                           
+
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=93'
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -92,9 +89,10 @@ export FZF_DEFAULT_OPTS="--tmux 90% -m --bind 'change:top,tab:toggle-up,btab:tog
     --color=selected-bg:#45475a \
     --multi"
 export FZF_DEFAULT_COMMAND="fd -t f -c always"
+export TICKER_CONFIG="$HOME/.config/ticker/config.yaml"
+export XDG_CONFIG_HOME="$HOME/.config"
 export EZA_CONFIG_DIR="$HOME/.config/eza"
 
-eval "$(zoxide init zsh)"
 
 function cdls() {
     clear -x && z "$@" && eza -a --icons 
@@ -135,19 +133,34 @@ if [ $DISPLAY ]; then;
     (xbanish &)
 fi;
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export ATAC_MAIN_DIR="~/atac"
 export ATAC_KEY_BINDINGS="~/.config/atac/vimbind.toml"
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-eval "$(atuin init zsh)"
-eval "$(starship init zsh)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+
+eval "$(atuin init zsh)" # Fast
+eval "$(starship init zsh)" # Fast
+eval "$(zoxide init zsh)" # Fast
+
+
+# Thefuck - lazy load
+fuck() {
+  eval $(thefuck --alias)
+  fuck "$@"
+}
+
+# NVM - lazy loading
+export NVM_DIR="$HOME/.nvm"
+nvm() {
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  nvm "$@"
+}
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_USER_DEFAULT # Set the cursor to be block in insert mode
 ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT

@@ -1,0 +1,33 @@
+show-summary: true
+show-tags: true
+show-fundamentals: true
+show-separator: true
+interval: 10
+sort: user
+fundamentals:
+  - range_52_week
+groups:
+  - name: Indexes
+    watchlist:
+      - ^GSPC  # S&P 500 Index
+      - ^DJI   # Dow Jones Industrial Average
+      - ^IXIC  # NASDAQ Composite
+
+  - name: Stocks
+    watchlist:
+      - TSLA   # Tesla
+
+  - name: Crypto
+    watchlist:
+      - BTC-USD  # Bitcoin in USD
+      - BTC-EUR  # Bitcoin in EUR
+
+  - name: Forex
+    watchlist:
+      - DX-Y.NYB  # US Dollar Index
+      - EURUSD=X  # EUR/USD pair
+      - GBPUSD=X  # GBP/USD pair
+
+  - name: Commodities
+    watchlist:
+      - GC=F     # Gold Futures (USD/troy ounce)
