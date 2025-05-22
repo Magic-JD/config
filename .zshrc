@@ -169,5 +169,6 @@ ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 # This must be after sdk man for sdk man to work ;)
-alias -g -- -h='-h 2>&1 | bat --language=help --style=plain --pager="less -R -X -F"'
-alias -g -- --help='--help 2>&1 | bat --language=help --style=plain --pager="less -R -X -F"'
+export BAT_PAGER="less -RXF"
+alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
