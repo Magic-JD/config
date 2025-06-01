@@ -217,7 +217,7 @@ format = ' [$symbol]($style)'
 
 [python]
 symbol = " "
-format = ' [$symbol]($style)'
+format = ' on [$symbol$venv_name ( $version)]($style)'
 
 [rlang]
 symbol = " 󰟔"

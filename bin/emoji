@@ -1,0 +1,3 @@
+#!/bin/bash
+
+bat ~/.emojis.txt | fzf | awk '{print $2}'

@@ -216,8 +216,8 @@ symbol = " "
 format = ' [$symbol( $version)]($style)'
 
 [python]
+format = '[$symbol on $venv_name ( $version)]($style) '
 symbol = " "
-format = ' [$symbol( $version)]($style)'
 
 [rlang]
 symbol = " 󰟔"
