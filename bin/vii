@@ -33,8 +33,7 @@ fi
 
 # If the file found is not a fuzzy match attempt (has spaces) the verify before creating it
 if [ -n "$1" ] && [ "$1" == "$*" ]; then
-    read -p "Create file $1? (y/n): " CONT
-    if [ "$CONT" = "y" ]; then
-        $EDITOR $1;
-    fi
+    gum confirm --no-show-help "The file doesn't exist, do you want to create it?" \
+        && $EDITOR $1 \
+        || exit 0
 fi

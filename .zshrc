@@ -89,6 +89,11 @@ export FZF_DEFAULT_OPTS="--tmux 90% -m --bind 'change:top,tab:toggle-up,btab:tog
     --color=selected-bg:#45475a \
     --multi"
 export FZF_DEFAULT_COMMAND="fd -t f -c always"
+export GUM_INPUT_PROMPT="❯ "
+export GUM_CONFIRM_SELECTED_BACKGROUND="#cba6f7,"
+export GUM_CONFIRM_SELECTED_FOREGROUND="#313244"
+
+# --flags can override values set with environment
 export TICKER_CONFIG="$HOME/.config/ticker/config.yaml"
 export XDG_CONFIG_HOME="$HOME/.config"
 export EZA_CONFIG_DIR="$HOME/.config/eza"
