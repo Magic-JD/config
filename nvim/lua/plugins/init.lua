@@ -144,7 +144,6 @@ return {
       "nvim-java/nvim-java",
   },
 
-  'neoclide/coc.nvim',
 -- lazy.nvim
 {
   "folke/noice.nvim",

@@ -32,6 +32,7 @@ brew install bat \
     pandoc \
     ddgr \
     csvlens \
+    gum \
     magic-jd/tap/is-fast;
 
 uv tool install --python 3.12 posting;
