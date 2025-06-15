@@ -33,7 +33,7 @@ brew install bat \
     ddgr \
     csvlens \
     gum \
-    magic-jd/tap/is-fast;
+    is-fast;
 
 uv tool install --python 3.12 posting;
 
