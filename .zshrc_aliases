@@ -1,7 +1,7 @@
 #Alias for ls to make it look better
 alias ls='eza -a --icons'
 alias ll='eza -l -a --icons --git'
-alias tree='eza --tree --icons'
+alias tree='eza --tree --icons=always --color=always | less -R'
 
 # Use zoxide to change directory
 alias cd='cdls'
