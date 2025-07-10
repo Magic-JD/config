@@ -71,7 +71,7 @@ inline_height = 10
 
 ## enable or disable showing a preview of the selected command
 ## useful when the command is longer than the terminal width and is cut off
-# show_preview = false
+show_preview = true
 
 ## what to do when the escape key is pressed when searching
 ## possible values: return-original, return-query
@@ -115,7 +115,7 @@ inline_height = 10
 ## Configure the maximum height of the preview to show.
 ## Useful when you have long scripts in your history that you want to distinguish
 ## by more than the first few lines.
-# max_preview_height = 4
+max_preview_height = 5
 
 ## Configure whether or not to show the help row, which includes the current Atuin
 ## version (and whether an update is available), a keymap hint, and the total
@@ -175,3 +175,6 @@ enter_accept = true
 
 [theme]
 name = "marine"
+
+[preview]
+strategy = "fixed"
