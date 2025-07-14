@@ -17,9 +17,6 @@ alias takeoff='export STARSHIP_CONFIG=~/.starship.toml'
 # Better top
 alias top='btop'
 
-# Bat coloring
-alias tail='battail'
-
 # Git
 alias fgc='git checkout $(_fzf_git_branches)'
 
@@ -28,3 +25,5 @@ alias f='fuck'
 
 # Is fast
 alias is='is-fast'
+
+alias docl='docu add "$(fc -ln -1)"'

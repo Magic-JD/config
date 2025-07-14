@@ -175,6 +175,3 @@ enter_accept = true
 
 [theme]
 name = "marine"
-
-[preview]
-strategy = "fixed"

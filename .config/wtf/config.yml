@@ -1,0 +1,76 @@
+wtf:
+  colors:
+    border:
+      focusable: darkslateblue
+      focused: orange
+      normal: gray
+  grid:
+    columns: [32, 32, 32, 32, 90]
+    rows: [10, 10, 10, 4, 4, 90]
+  refreshInterval: 1
+  mods:
+    clocks:
+      colors:
+        rows:
+          even: "lightblue"
+          odd: "white"
+      enabled: true
+      locations:
+        Jakarta: "Asia/Jakarta"
+        London: "Europe/London"
+        Berlin: "Europe/Berlin"
+      position:
+        top: 1
+        left: 4
+        height: 1
+        width: 1
+      refreshInterval: 15
+      sort: "alphabetical"
+      title: "Clocks"
+      type: "clocks"
+    calendar:
+      enabled: true
+      args: []
+      cmd: "carl"
+      position:
+        top: 2
+        left: 4
+        height: 1
+        width: 1
+      title: "Calendar"
+      type: cmdrunner
+    feedreader:
+      enabled: true
+      feeds:
+      - https://feeds.bbci.co.uk/news/rss.xml
+      feedLimit: 8
+      position:
+        top: 0
+        left: 0
+        width: 4
+        height: 1
+      refreshInterval: 14400
+      title: "News"
+    ipinfo:
+      colors:
+        name: "lightblue"
+        value: "white"
+      enabled: true
+      position:
+        top: 0
+        left: 4
+        height: 1
+        width: 1
+      refreshInterval: 150
+    reddit:
+      args: ["--direct", "https://old.reddit.com"]
+      cmd: "is-fast"
+      enabled: true
+      position:
+        top: 1
+        left: 0
+        height: 3
+        width: 4
+      refreshInterval: 14400
+      type: cmdrunner
+      title: "Reddit"
